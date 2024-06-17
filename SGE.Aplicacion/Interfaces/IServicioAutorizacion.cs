@@ -2,5 +2,5 @@
 
 public interface IServicioAutorizacion
 {
-    bool TienePermiso(int IdUsuario, Permiso permiso);
+    bool TienePermiso(Usuario usuarui, Permiso permiso);
 }

@@ -2,8 +2,17 @@
 
 public class ServicioAutorizacionProvisorio : IServicioAutorizacion
 {
-  public bool TienePermiso(int IdUsuario, Permiso permiso)
+  public bool TienePermiso(Usuario usuario,Permiso accion)
     {   
-        return IdUsuario == 1; 
+        if (usuario.id==1) return true;
+        else 
+        {
+          foreach (Permiso permisoUsuario in usuario.ListaPermisos)
+          {
+            if (permisoUsuario== accion) return true;
+          }
+        }
+        return false;
     }
 }
+
