@@ -3,16 +3,16 @@
 public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoTramite, IServicioAutorizacion autorizador,
     ServicioActualizacionEstado actualizacionEstado, IValidadorTramite validador)
 {
-    public void Ejecutar(Tramite t, int IdUsuario)
+    public void Ejecutar(Tramite t, Usuario usuario)
     {
         try
         {
-            if (autorizador.TienePermiso(IdUsuario, Permiso.TramiteAlta))
+            if (autorizador.TienePermiso(usuario, Permiso.TramiteAlta))
             {
+                t.UsuarioUltModificacion = usuario.id;
                 validador.Validar(t);
                 t.FechaCreacion = DateTime.Now;
                 t.FechaUltModificacion = DateTime.Now;
-                t.UsuarioUltModificacion = IdUsuario;
                 repoTramite.TramiteAlta(t);
                 actualizacionEstado.actualizacionEstadoExpediente(t.ExpedienteID, t.TipoTramite);
             }

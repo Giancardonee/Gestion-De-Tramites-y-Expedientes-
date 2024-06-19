@@ -3,14 +3,14 @@
 public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repoExpediente, IServicioAutorizacion autorizador, IValidadorExpediente validacion)
 {
 
-    public void Ejecutar(Expediente e, int IdUsuario)
+    public void Ejecutar(Expediente e, Usuario usuario)
     {
         try
         {
-            if (autorizador.TienePermiso(IdUsuario, Permiso.ExpedienteAlta))
+            if (autorizador.TienePermiso(usuario, Permiso.ExpedienteAlta))
             {
+                e.UsuarioUltModificacion = usuario.id;
                 validacion.Validar(e);
-                e.UsuarioUltModificacion = IdUsuario;
                 repoExpediente.ExpedienteAlta(e);
             }
             else

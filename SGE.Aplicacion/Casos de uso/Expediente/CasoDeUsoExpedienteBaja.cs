@@ -2,19 +2,16 @@
 
 public class CasoDeUsoExpedienteBaja(
     IExpedienteRepositorio repoExpediente,
-    IServicioAutorizacion autorizador,
-    ITramiteRepositorio repoTramite
+    IServicioAutorizacion autorizador
+    
 )
 {
-    public void Ejecutar(int idBaja, int IdUsuario)
+    public void Ejecutar(int idBaja, Usuario usuario)
     {
         try
         {
-            if (autorizador.TienePermiso(IdUsuario, Permiso.ExpedienteBaja))
+            if (autorizador.TienePermiso(usuario, Permiso.ExpedienteBaja))
             {
-                List<Tramite> listaTramites = repoTramite.TramiteConsultaPorIdExpediente(idBaja);
-                if (listaTramites.Count > 0)
-                    repoTramite.eliminarTramitesAsociados(idBaja);
                 repoExpediente.ExpedienteBaja(idBaja);
             }
             else

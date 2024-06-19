@@ -6,11 +6,11 @@ public class CasoDeUsoTramiteModificacion(
     ServicioActualizacionEstado actualizacionEstado
 )
 {
-    public void Ejecutar(Tramite t, int IdUsuario)
+    public void Ejecutar(Tramite t, Usuario usuario)
     {
         try
         {
-            if (autorizador.TienePermiso(IdUsuario, Permiso.TramiteModificacion))
+            if (autorizador.TienePermiso(usuario, Permiso.TramiteModificacion))
             {
                 repoTramite.TramiteModificacion(t);
                 actualizacionEstado.actualizacionEstadoExpediente(t.ExpedienteID, t.TipoTramite);

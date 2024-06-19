@@ -8,9 +8,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        IExpedienteRepositorio repoExpediente = new RepositorioExpedienteTXT();
-        ITramiteRepositorio repoTramite = new RepositorioTramiteTxt();
-        IServicioAutorizacion servicioAutorizacion = new ServicioAutorizacionProvisorio();
+        
+        SGESqlite.Inicializar();
+        using var db = new SGEcontext();
+
+        IValidadorUsuario validadorUsuario =new UsuarioValidador();
+        IUsuarioRepositorio repoUsuario = new RepositorioUsuario (db);
+        IExpedienteRepositorio repoExpediente = new RepositorioExpediente(db);
+        ITramiteRepositorio repoTramite = new RepositorioTramite(db);
+        IServicioAutorizacion servicioAutorizacion = new ServicioAutorizacion();
         EspecificacionCambioEstado espCambioEstado = new EspecificacionCambioEstado();
         IValidadorExpediente validadorExpediente = new ExpedienteValidador();
         IValidadorTramite validadorTramite = new TramiteValidador();
@@ -26,8 +32,7 @@ class Program
         );
         CasoDeUsoExpedienteBaja CUEBaja = new CasoDeUsoExpedienteBaja(
             repoExpediente,
-            servicioAutorizacion,
-            repoTramite
+            servicioAutorizacion
         );
         CasoDeUsoExpedienteModificacion CUEModificacion = new CasoDeUsoExpedienteModificacion(
             repoExpediente,
@@ -61,6 +66,68 @@ class Program
         CasoDeUsoTramiteConsultaPorEtiqueta CUTConsultaPorEtiqueta =
             new CasoDeUsoTramiteConsultaPorEtiqueta(repoTramite);
 
+        CasoDeUsoUsuarioAlta CUUAlta = new CasoDeUsoUsuarioAlta(repoUsuario,validadorUsuario);
+        
+
+
+//===========================
+
+        Usuario usuario1 = new Usuario("Gianluca","Cardone","micorreo@gmail.com","micontra1234");
+        CUUAlta.Ejecutar(usuario1);
+
+        
+        Usuario nuevoUsuario = new Usuario("micorreo@gmail.com", "micontra1234");
+        if(repoUsuario.AutenticarUsuario(nuevoUsuario)){
+            Console.WriteLine("Sesion iniciada");
+        }
+        else Console.WriteLine("Error");
+
+        
+
+
+         //Expediente exp = new Expediente () {Caratula = "Expediente 1"}; 
+         //CUEAlta.Ejecutar(exp , usuarioAdministrador);
+
+        // exp.Caratula = "aaaa";
+        // CUEModificacion.Ejecutar(exp,usuarioAdministrador);
+
+        //CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.Resolucion, "Contenidooooooo"), usuarioAdministrador);
+        //CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.EscritoPresentado, "adsadadasdas"), usuarioAdministrador);
+        
+        // CUTAlta.Ejecutar(new Tramite (1, EtiquetaTramite.PaseAEstudio, "tramitedaskjdak"),usuarioAdministrador);
+        // CUTBaja.Ejecutar(3,usuarioAdministrador);
+
+        // var listaTramites = CUEConsultaPorId.Ejecutar(1);
+        // if (listaTramites == null) Console.WriteLine("no hay nada.");
+        // else Console.WriteLine("Encontre tramites : ");
+    
+        // CUEBaja.Ejecutar(1,usuarioAdministrador);
+
+        //Expediente exp = CUEConTramitesAsociados.Ejecutar(1);
+        //Console.WriteLine(repoTramite.TramiteConsultaPorIdExpediente(1).Count);
+
+        Console.WriteLine("Fin del programa.");
+
+ //===========================   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
         TestCambioEstados();
         TestTramitesAsociados();
         TestExpedienteConsultaTodos();
@@ -68,6 +135,8 @@ class Program
         TestConsultaTramitePorEtiqueta();
         TestUsuarioSinPermisos();
         TestEntidadesVacias();
+
+
 
         void TestCambioEstados()
         {
@@ -199,5 +268,8 @@ class Program
             CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.Resolucion, "Contenidooooooo"), 1);
             CUTAlta.Ejecutar(new Tramite(), 1);
         }
+        */
     }
+    
 }
+

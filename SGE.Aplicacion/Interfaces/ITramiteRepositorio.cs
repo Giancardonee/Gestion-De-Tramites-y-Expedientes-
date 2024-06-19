@@ -8,5 +8,4 @@ public interface ITramiteRepositorio
     List<Tramite> TramiteConsultaPorEtiqueta(EtiquetaTramite e);
     List<Tramite> TramiteConsultaPorIdExpediente(int IdExpediente);
     Tramite TramiteConsultaUltimo();
-    void eliminarTramitesAsociados(int idExpediente);
 }

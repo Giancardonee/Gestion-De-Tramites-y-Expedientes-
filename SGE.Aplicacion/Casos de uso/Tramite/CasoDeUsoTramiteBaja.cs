@@ -6,11 +6,11 @@ public class CasoDeUsoTramiteBaja(
     ServicioActualizacionEstado actualizacionEstado
 )
 {
-    public void Ejecutar(int idTramite, int IdUsuario)
+    public void Ejecutar(int idTramite, Usuario usuario)
     {
         try
         {
-            if (autorizador.TienePermiso(IdUsuario, Permiso.TramiteBaja))
+            if (autorizador.TienePermiso(usuario, Permiso.TramiteBaja))
             {
                 Tramite ultimoTramite = repoTramite.TramiteConsultaUltimo();                
                 repoTramite.TramiteBaja(idTramite);

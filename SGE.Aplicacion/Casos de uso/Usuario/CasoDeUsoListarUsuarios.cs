@@ -1,6 +1,6 @@
 ﻿namespace SGE.Aplicacion;
 
-public class CasoDeUsoListarUsuarios (IUsuarioRepositorio repoUsuario)// dbContext
+public class CasoDeUsoListarUsuarios (IUsuarioRepositorio repoUsuario)
 {
     public List<Usuario> Ejecutar ()
     {

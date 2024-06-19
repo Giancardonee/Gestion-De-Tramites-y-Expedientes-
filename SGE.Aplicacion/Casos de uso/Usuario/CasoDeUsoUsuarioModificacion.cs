@@ -1,6 +1,6 @@
 ﻿namespace SGE.Aplicacion;
 
-public class CasoDeUsoUsuarioModificacion (IUsuarioRepositorio repoUsuario, IValidadorUsuario validadorUsuario)// y dbContext
+public class CasoDeUsoUsuarioModificacion (IUsuarioRepositorio repoUsuario, IValidadorUsuario validadorUsuario)
 {
     public void Ejecutar (Usuario usuario)
     {
