@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SGE.Aplicacion\SGE.Aplicacion.csproj" />
+    <ProjectReference Include="..\SGE.Autenticacion\SGE.Autenticacion.csproj" />
   </ItemGroup>
 
   <ItemGroup>

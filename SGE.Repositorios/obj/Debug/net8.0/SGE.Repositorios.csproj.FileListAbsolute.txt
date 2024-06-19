@@ -46,3 +46,5 @@ C:\Users\Usuario\Desktop\sistema prueba\SGE.Repositorios\bin\Debug\net8.0\SGE.Ap
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Repositorios\obj\Debug\net8.0\SGE.Repo.5B6658F4.Up2Date
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.sourcelink.json
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Repositorios\bin\Debug\net8.0\SGE.Autenticacion.dll
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Repositorios\bin\Debug\net8.0\SGE.Autenticacion.pdb

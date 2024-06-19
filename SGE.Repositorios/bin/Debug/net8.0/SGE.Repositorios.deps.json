@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "8.0.6",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.6",
-          "SGE.Aplicacion": "1.0.0"
+          "SGE.Aplicacion": "1.0.0",
+          "SGE.Autenticacion": "1.0.0"
         },
         "runtime": {
           "SGE.Repositorios.dll": {}
@@ -342,6 +343,14 @@
         "runtime": {
           "SGE.Aplicacion.dll": {}
         }
+      },
+      "SGE.Autenticacion/1.0.0": {
+        "dependencies": {
+          "SGE.Aplicacion": "1.0.0"
+        },
+        "runtime": {
+          "SGE.Autenticacion.dll": {}
+        }
       }
     }
   },
@@ -520,6 +529,11 @@
       "hashPath": "system.text.json.8.0.0.nupkg.sha512"
     },
     "SGE.Aplicacion/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SGE.Autenticacion/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

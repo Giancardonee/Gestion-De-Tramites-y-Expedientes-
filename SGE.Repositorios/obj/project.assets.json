@@ -492,6 +492,19 @@
         "runtime": {
           "bin/placeholder/SGE.Aplicacion.dll": {}
         }
+      },
+      "SGE.Autenticacion/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SGE.Aplicacion": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SGE.Autenticacion.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SGE.Autenticacion.dll": {}
+        }
       }
     }
   },
@@ -1193,13 +1206,19 @@
       "type": "project",
       "path": "../SGE.Aplicacion/SGE.Aplicacion.csproj",
       "msbuildProject": "../SGE.Aplicacion/SGE.Aplicacion.csproj"
+    },
+    "SGE.Autenticacion/1.0.0": {
+      "type": "project",
+      "path": "../SGE.Autenticacion/SGE.Autenticacion.csproj",
+      "msbuildProject": "../SGE.Autenticacion/SGE.Autenticacion.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.EntityFrameworkCore.Relational >= 8.0.6",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.6",
-      "SGE.Aplicacion >= 1.0.0"
+      "SGE.Aplicacion >= 1.0.0",
+      "SGE.Autenticacion >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1229,6 +1248,9 @@
           "projectReferences": {
             "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
               "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+            },
+            "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
             }
           }
         }

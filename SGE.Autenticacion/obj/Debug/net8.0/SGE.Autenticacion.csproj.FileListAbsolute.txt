@@ -1,0 +1,16 @@
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\bin\Debug\net8.0\SGE.Autenticacion.deps.json
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\bin\Debug\net8.0\SGE.Autenticacion.dll
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\bin\Debug\net8.0\SGE.Autenticacion.pdb
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\bin\Debug\net8.0\SGE.Aplicacion.dll
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\bin\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.sourcelink.json
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Aute.6F7665C2.Up2Date
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.dll
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\refint\SGE.Autenticacion.dll
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\SGE.Autenticacion.pdb
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Autenticacion\obj\Debug\net8.0\ref\SGE.Autenticacion.dll

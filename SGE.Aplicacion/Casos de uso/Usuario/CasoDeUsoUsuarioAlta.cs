@@ -1,6 +1,7 @@
-﻿namespace SGE.Aplicacion;
+﻿
+namespace SGE.Aplicacion;
 
-public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repoUsuario, IValidadorUsuario validadorUsuario)
+public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repoUsuario, IValidadorUsuario validadorUsuario, IServicioHashContraseña servicioHash)
 {
     public void Ejecutar(Usuario usuario)
     {
@@ -10,7 +11,8 @@ public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repoUsuario, IValidadorUs
             validadorUsuario.ValidarCorreo(usuario.Correo);
             validadorUsuario.ValidarContraseña(usuario.Contraseña);
             validadorUsuario.ValidarDemasCampos(usuario.Nombre,usuario.Contraseña);
-            repoUsuario.AgregarUsuario(usuario);
+            String hashContraseña = servicioHash.hashPassword(usuario.Contraseña);
+            repoUsuario.RegistrarUsuario(usuario,hashContraseña);
         }
         catch (Exception e)
         {

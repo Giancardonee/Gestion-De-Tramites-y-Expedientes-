@@ -1,5 +1,6 @@
 ﻿using System;
 using SGE.Aplicacion;
+using SGE.Autenticacion;
 using SGE.Repositorios;
 
 namespace SGE.Consola;
@@ -66,27 +67,32 @@ class Program
         CasoDeUsoTramiteConsultaPorEtiqueta CUTConsultaPorEtiqueta =
             new CasoDeUsoTramiteConsultaPorEtiqueta(repoTramite);
 
-        CasoDeUsoUsuarioAlta CUUAlta = new CasoDeUsoUsuarioAlta(repoUsuario,validadorUsuario);
-        CasoDeUsoUsuarioBaja CUUBaja = new CasoDeUsoUsuarioBaja(repoUsuario);
+        ServicioHashContraseña hashContraseña = new ServicioHashContraseña();
 
+        CasoDeUsoUsuarioAlta CUUAlta = new CasoDeUsoUsuarioAlta(repoUsuario,validadorUsuario, hashContraseña);
+        CasoDeUsoUsuarioBaja CUUBaja = new CasoDeUsoUsuarioBaja(repoUsuario);
+        ServicioIniciarSesion servicioAutenticacion = new ServicioIniciarSesion(hashContraseña,repoUsuario);
 
 
 //===========================
 
 
         Usuario usuario1 = new Usuario("Gianluca","Cardone","micorreo@gmail.com","micontra1234");
-        CUUAlta.Ejecutar(usuario1);
+        //CUUAlta.Ejecutar(usuario1);
 
-
+        if (servicioAutenticacion.IniciarSesion(usuario1)){
+            Console.WriteLine("Iniciaste sesion.");
+        }
         
-         Expediente exp = new Expediente () {Caratula = "Expediente 1"}; 
+        Expediente exp = new Expediente () {Caratula = "Expediente 1"}; 
 
 
-         CUEAlta.Ejecutar(exp , usuario1);
 
-        CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.Resolucion, "Contenidooooooo"), usuario1);
+        // CUEAlta.Ejecutar(exp , usuario1);
 
-        CUEBaja.Ejecutar(1,usuario1);    
+        // CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.Resolucion, "Contenidooooooo"), usuario1);
+
+        // CUEBaja.Ejecutar(1,usuario1);    
 
         // Usuario nuevoUsuario = new Usuario("micorreo@gmail.com", "micontra1234");
         // if(repoUsuario.AutenticarUsuario(nuevoUsuario)){

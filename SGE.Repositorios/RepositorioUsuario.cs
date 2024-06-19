@@ -1,27 +1,28 @@
 ﻿using SGE.Aplicacion;
 namespace SGE.Repositorios;
-using System.Text;
-using System.Security.Cryptography;
+
 
 public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
 {
-    public void AgregarUsuario(Usuario usuario)
+    public void RegistrarUsuario(Usuario usuario, String hashContraseña)
     {
         ChequearExisteCorreo(usuario.Correo);
-        usuario.Contraseña = hashPassword(usuario.Contraseña);
+        usuario.Contraseña = hashContraseña;
         context.Usuarios.Add(usuario);
         context.SaveChanges();
     }
 
-    public bool AutenticarUsuario(Usuario usuario)
+    public bool AutenticarUsuario(Usuario usuario, String hashContraseña)
     {
-        string hashContraseña = hashPassword(usuario.Contraseña);
         var usuarioComparar = context.Usuarios.SingleOrDefault(u => u.Correo == usuario.Correo && u.Contraseña == hashContraseña);
         if (usuarioComparar != null)
         {
             return true;
         }
-        return false;
+        else{
+             throw new RepositorioException(
+                "AutenticarUsuario: Credenciales invalidas.");
+        }
     }
 
 
@@ -56,7 +57,7 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     }
 
     // recibir correo, y permisos
-  
+
     public List<Usuario> ListarUsuarios()
     {
         List<Usuario> usuarios = context.Usuarios.ToList();
@@ -91,7 +92,6 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
         var usuarioModificar = context.Usuarios.Where(u => u.Id == usuario.Id).SingleOrDefault();
         if (usuarioModificar != null)
         {
-
             if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
             {
                 var permisos = usuarioModificar.ListaPermisos.Split(',').Where(p => p != permisoAQuitar);
@@ -103,26 +103,12 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
             throw new RepositorioException("AgregarPermisos: El usuario no existe.");
     }
 
-    private string hashPassword(string password)
-    {
-        using (var sha256 = SHA256.Create())
-        {
-            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                builder.Append(bytes[i].ToString("x2"));
-            }
-            return builder.ToString();
-        }
-    }
-
     private void ChequearExisteCorreo(String correoNuevo)
     {
-        bool emailExists = context.Usuarios // Replace with your table name
-        .Where(e => e.Correo == correoNuevo) // Filter by the Email property
-        .Any(); // Check if any records match the condition
-        if (emailExists)
+        bool existeMail = context.Usuarios 
+        .Where(e => e.Correo == correoNuevo) 
+        .Any(); 
+        if (existeMail)
         {
             throw new RepositorioException("El correo ya esta en uso.");
         }
