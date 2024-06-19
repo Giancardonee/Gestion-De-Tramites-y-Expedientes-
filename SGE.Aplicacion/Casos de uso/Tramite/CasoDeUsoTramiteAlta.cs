@@ -9,12 +9,12 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoTramite, IServicioAuto
         {
             if (autorizador.TienePermiso(usuario, Permiso.TramiteAlta))
             {
-                t.UsuarioUltModificacion = usuario.id;
+                t.UsuarioUltModificacion = usuario.Id;
                 validador.Validar(t);
                 t.FechaCreacion = DateTime.Now;
                 t.FechaUltModificacion = DateTime.Now;
                 repoTramite.TramiteAlta(t);
-                actualizacionEstado.actualizacionEstadoExpediente(t.ExpedienteID, t.TipoTramite);
+                actualizacionEstado.actualizacionEstadoExpediente(t.ExpedienteId, t.TipoTramite);
             }
             else
             {

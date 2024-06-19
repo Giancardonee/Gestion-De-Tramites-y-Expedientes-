@@ -28,7 +28,7 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     // recibir correo en vez de id.
     public void EliminarUsuario(int idBorrarUsuario)
     {
-        var usuarioBorrar = context.Usuarios.Where(u => u.id == idBorrarUsuario).SingleOrDefault();
+        var usuarioBorrar = context.Usuarios.Where(u => u.Id == idBorrarUsuario).SingleOrDefault();
         if (usuarioBorrar != null)// es porque existe el usuari.
         {
             context.Remove(usuarioBorrar);
@@ -42,7 +42,7 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     }
     public void ModificarUsuario(Usuario usuario)
     {
-        var usuarioModificar = context.Usuarios.Where(u => u.id == usuario.id).SingleOrDefault();
+        var usuarioModificar = context.Usuarios.Where(u => u.Id == usuario.Id).SingleOrDefault();
         if (usuarioModificar != null)
         {
             usuarioModificar.Nombre = usuario.Nombre;
@@ -68,7 +68,7 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     // QUITAR PERMSISOS ADJUDICADOS DESDE LA UI !!
     public void AgregarPermiso(Usuario usuario, String permisoAOtorgar)
     {
-        var usuarioModificar = context.Usuarios.Where(u => u.id == usuario.id).SingleOrDefault();
+        var usuarioModificar = context.Usuarios.Where(u => u.Id == usuario.Id).SingleOrDefault();
         if (usuarioModificar != null)
         {
             if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
@@ -88,7 +88,7 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
 
     public void QuitarPermiso(Usuario usuario, String permisoAQuitar)
     {
-        var usuarioModificar = context.Usuarios.Where(u => u.id == usuario.id).SingleOrDefault();
+        var usuarioModificar = context.Usuarios.Where(u => u.Id == usuario.Id).SingleOrDefault();
         if (usuarioModificar != null)
         {
 

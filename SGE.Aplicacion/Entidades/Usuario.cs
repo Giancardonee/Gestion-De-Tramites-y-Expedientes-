@@ -2,12 +2,13 @@
 
 public class Usuario
 {
+    public int Id { get; set; }
     public String Nombre { get; set; }
     public String Apellido { get; set; }
     public String Correo { get; set; }
     public String Contraseña { get; set; } // guardarla hasheada en la bd 
     public String? ListaPermisos { get; set; } // se encarga el administrador
-    public int id { get; set; }
+    
 
     public Usuario(String Nombre, String Apellido, String Correo, String Contraseña)
     {
@@ -32,6 +33,6 @@ public class Usuario
         this.Apellido = Apellido;
         this.Correo = Correo;
         this.Contraseña = Contraseña;
-        this.id = id;
+        this.Id = id;
     }
 }

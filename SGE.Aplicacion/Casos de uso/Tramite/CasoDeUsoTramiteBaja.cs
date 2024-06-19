@@ -14,11 +14,11 @@ public class CasoDeUsoTramiteBaja(
             {
                 Tramite ultimoTramite = repoTramite.TramiteConsultaUltimo();                
                 repoTramite.TramiteBaja(idTramite);
-                if (ultimoTramite.IdTramite == idTramite)
+                if (ultimoTramite.Id == idTramite)
                 {
                     Tramite nuevoUltTramite = repoTramite.TramiteConsultaUltimo();
-                    if (nuevoUltTramite.IdTramite > 0) 
-                        actualizacionEstado.actualizacionEstadoExpediente(nuevoUltTramite.ExpedienteID, nuevoUltTramite.TipoTramite);
+                    if (nuevoUltTramite.Id > 0) 
+                        actualizacionEstado.actualizacionEstadoExpediente(nuevoUltTramite.ExpedienteId, nuevoUltTramite.TipoTramite);
                 }
             }
             else

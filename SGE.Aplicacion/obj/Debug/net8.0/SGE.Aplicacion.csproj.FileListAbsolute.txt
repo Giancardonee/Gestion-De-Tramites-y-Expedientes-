@@ -33,3 +33,4 @@ C:\Users\Usuario\Desktop\sistema prueba\SGE.Aplicacion\bin\Debug\net8.0\SGE.Apli
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.dll
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.pdb
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll
+C:\Users\Usuario\Desktop\sistema prueba\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.sourcelink.json

@@ -9,7 +9,7 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repoExpediente, ISer
         {
             if (autorizador.TienePermiso(usuario, Permiso.ExpedienteAlta))
             {
-                e.UsuarioUltModificacion = usuario.id;
+                e.UsuarioUltModificacion = usuario.Id;
                 validacion.Validar(e);
                 repoExpediente.ExpedienteAlta(e);
             }

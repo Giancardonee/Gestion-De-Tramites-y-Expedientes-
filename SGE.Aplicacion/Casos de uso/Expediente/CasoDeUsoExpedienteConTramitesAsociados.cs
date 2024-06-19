@@ -8,7 +8,7 @@ public class CasoDeUsoExpedienteConTramitesAsociados(IExpedienteRepositorio repo
         try
         {
         if (exp != null)
-            exp.listaDeTramites = repoTramite.TramiteConsultaPorIdExpediente(idExpediente);
+            exp.Tramites = repoTramite.TramiteConsultaPorIdExpediente(idExpediente);
         }
         catch (RepositorioException ex)
         {

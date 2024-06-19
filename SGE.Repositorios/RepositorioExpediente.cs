@@ -15,7 +15,7 @@ public class RepositorioExpediente(SGEcontext context) : IExpedienteRepositorio
     // tener en cuenta que hay que dar de baja todos sus tramites. ESTO TODAVIA NO LO HICE. ACA HAY QUE USAR UN DELETE EN CASCADA
     public void ExpedienteBaja(int idBorrarExpediente)
     {
-        var expedienteBorrar = context.Expedientes.Where(e => e.IdExpediente == idBorrarExpediente).SingleOrDefault();
+        var expedienteBorrar = context.Expedientes.Where(e => e.Id == idBorrarExpediente).SingleOrDefault();
         if (expedienteBorrar != null)// es porque existe el expediente.
         {
             context.Remove(expedienteBorrar);
@@ -30,7 +30,7 @@ public class RepositorioExpediente(SGEcontext context) : IExpedienteRepositorio
 
     public void ExpedienteModificacion(Expediente eModificar)
     {
-        var expedienteModificar = context.Expedientes.Where(e => e.IdExpediente == eModificar.IdExpediente).SingleOrDefault();
+        var expedienteModificar = context.Expedientes.Where(e => e.Id == eModificar.Id).SingleOrDefault();
         if (expedienteModificar != null)
         {
             expedienteModificar.Caratula = eModificar.Caratula;
@@ -43,7 +43,7 @@ public class RepositorioExpediente(SGEcontext context) : IExpedienteRepositorio
 
     public Expediente? ExpedienteConsultaPorId(int IdExpedienteBuscado)
     {
-        var expedienteBuscado = context.Expedientes.Where(e => e.IdExpediente == IdExpedienteBuscado).SingleOrDefault();
+        var expedienteBuscado = context.Expedientes.Where(e => e.Id == IdExpedienteBuscado).SingleOrDefault();
         if (expedienteBuscado != null)
         {
             return expedienteBuscado;

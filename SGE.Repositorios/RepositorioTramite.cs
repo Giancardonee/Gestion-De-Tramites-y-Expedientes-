@@ -12,7 +12,7 @@ public class RepositorioTramite(SGEcontext context) : ITramiteRepositorio
 
     public void TramiteBaja(int idBorrarTramite)
     {
-        var tramiteBorrar = context.Tramites.Where(t => t.IdTramite == idBorrarTramite).SingleOrDefault();
+        var tramiteBorrar = context.Tramites.Where(t => t.Id == idBorrarTramite).SingleOrDefault();
         if (tramiteBorrar != null)// es porque existe el tramite.
         {
             context.Remove(tramiteBorrar);
@@ -24,10 +24,10 @@ public class RepositorioTramite(SGEcontext context) : ITramiteRepositorio
 
     public void TramiteModificacion(Tramite tModificar)
     {
-        var tramiteModificar = context.Tramites.Where(t => t.IdTramite == tModificar.IdTramite).SingleOrDefault();
+        var tramiteModificar = context.Tramites.Where(t => t.Id == tModificar.Id).SingleOrDefault();
         if (tramiteModificar != null)
         {
-            tramiteModificar.ExpedienteID = tModificar.ExpedienteID;
+            tramiteModificar.ExpedienteId = tModificar.ExpedienteId;
             tramiteModificar.FechaUltModificacion = DateTime.Now;
             tramiteModificar.TipoTramite = tModificar.TipoTramite;
             tramiteModificar.ContenidoTramite = tModificar.ContenidoTramite;
@@ -55,7 +55,7 @@ public class RepositorioTramite(SGEcontext context) : ITramiteRepositorio
 
     public List<Tramite> TramiteConsultaPorIdExpediente(int idExpediente)
     {
-        var tramitesFiltrados =   context.Tramites.Where(t => t.ExpedienteID == idExpediente).ToList();
+        var tramitesFiltrados =   context.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList();
         if (tramitesFiltrados.Count == 0)
             throw new RepositorioException("TramiteConsultaPorIdExpediente: el expediente no tiene trámites asociados.");
         return tramitesFiltrados;
@@ -63,8 +63,8 @@ public class RepositorioTramite(SGEcontext context) : ITramiteRepositorio
 
     public Tramite TramiteConsultaUltimo()
     {
-        var ultimoTramite = context.Tramites.OrderByDescending(t => t.IdTramite).First();
-        if (ultimoTramite == null) return new Tramite(){IdTramite=0};
+        var ultimoTramite = context.Tramites.OrderByDescending(t => t.Id).First();
+        if (ultimoTramite == null) return new Tramite(){Id=0};
         else return ultimoTramite;
     }
 }

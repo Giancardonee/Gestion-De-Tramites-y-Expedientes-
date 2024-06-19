@@ -98,3 +98,4 @@ C:\Users\Usuario\Desktop\sistema prueba\SGE.Consola\bin\Debug\net8.0\SGE.Reposit
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Consola\obj\Debug\net8.0\SGE.Cons.1669A3FB.Up2Date
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Consola\obj\Debug\net8.0\SGE.Consola.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\sistema prueba\SGE.Consola\obj\Debug\net8.0\ref\SGE.Consola.dll
+C:\Users\Usuario\Desktop\sistema prueba\SGE.consola\obj\Debug\net8.0\SGE.Consola.sourcelink.json

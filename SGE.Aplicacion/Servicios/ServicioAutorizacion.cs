@@ -4,7 +4,7 @@ public class ServicioAutorizacion : IServicioAutorizacion
 {
   public bool TienePermiso(Usuario usuario, Permiso accion)
   {
-    if (usuario.id == 1) return true;
+    if (usuario.Id == 1) return true;
     else
     {
       if (!String.IsNullOrEmpty(usuario.ListaPermisos))

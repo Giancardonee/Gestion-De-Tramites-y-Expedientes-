@@ -5,8 +5,8 @@ namespace SGE.Aplicacion;
 
 public class Tramite
 {
-    public int IdTramite { get; set; }
-    public int ExpedienteID { get; set; }
+    public int Id { get; set; }
+    public int ExpedienteId { get; set; }
     public EtiquetaTramite TipoTramite { get; set; }
     public string ContenidoTramite { get; set; }
     public DateTime FechaCreacion { get; set; }
@@ -16,7 +16,7 @@ public class Tramite
     public Tramite(int ExpId, EtiquetaTramite etiqueta, string contenido)
         : this()
     {
-        ExpedienteID = ExpId;
+        ExpedienteId = ExpId;
         TipoTramite = etiqueta;
         ContenidoTramite = contenido;
     }
@@ -31,6 +31,6 @@ public class Tramite
 
     public override string ToString()
     {
-        return $"Id de Expediente: {ExpedienteID}, Id de tramite: {IdTramite}, Tipo de tramite: {TipoTramite} , Contenido del tramite: {ContenidoTramite}  ";
+        return $"Id de Expediente: {ExpedienteId}, Id de tramite: {Id}, Tipo de tramite: {TipoTramite} , Contenido del tramite: {ContenidoTramite}  ";
     }
 }

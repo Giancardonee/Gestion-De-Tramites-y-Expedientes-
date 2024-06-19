@@ -67,31 +67,41 @@ class Program
             new CasoDeUsoTramiteConsultaPorEtiqueta(repoTramite);
 
         CasoDeUsoUsuarioAlta CUUAlta = new CasoDeUsoUsuarioAlta(repoUsuario,validadorUsuario);
-        
+        CasoDeUsoUsuarioBaja CUUBaja = new CasoDeUsoUsuarioBaja(repoUsuario);
+
 
 
 //===========================
 
+
         Usuario usuario1 = new Usuario("Gianluca","Cardone","micorreo@gmail.com","micontra1234");
         CUUAlta.Ejecutar(usuario1);
 
-        
-        Usuario nuevoUsuario = new Usuario("micorreo@gmail.com", "micontra1234");
-        if(repoUsuario.AutenticarUsuario(nuevoUsuario)){
-            Console.WriteLine("Sesion iniciada");
-        }
-        else Console.WriteLine("Error");
 
         
+         Expediente exp = new Expediente () {Caratula = "Expediente 1"}; 
 
 
-         //Expediente exp = new Expediente () {Caratula = "Expediente 1"}; 
-         //CUEAlta.Ejecutar(exp , usuarioAdministrador);
+         CUEAlta.Ejecutar(exp , usuario1);
+
+        CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.Resolucion, "Contenidooooooo"), usuario1);
+
+        CUEBaja.Ejecutar(1,usuario1);    
+
+        // Usuario nuevoUsuario = new Usuario("micorreo@gmail.com", "micontra1234");
+        // if(repoUsuario.AutenticarUsuario(nuevoUsuario)){
+        //     Console.WriteLine("Sesion iniciada");
+        // }
+        // else Console.WriteLine("Error");
+
+        
+
+
 
         // exp.Caratula = "aaaa";
         // CUEModificacion.Ejecutar(exp,usuarioAdministrador);
 
-        //CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.Resolucion, "Contenidooooooo"), usuarioAdministrador);
+        
         //CUTAlta.Ejecutar(new Tramite(1, EtiquetaTramite.EscritoPresentado, "adsadadasdas"), usuarioAdministrador);
         
         // CUTAlta.Ejecutar(new Tramite (1, EtiquetaTramite.PaseAEstudio, "tramitedaskjdak"),usuarioAdministrador);
