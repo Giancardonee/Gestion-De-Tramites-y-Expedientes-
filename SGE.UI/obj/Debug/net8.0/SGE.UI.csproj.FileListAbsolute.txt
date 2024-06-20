@@ -67,4 +67,4 @@ C:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\SGE.UI.genruntim
 C:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\ref\SGE.UI.dll
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\MenuExpediente.razor.rz.scp.css
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\RegistrarUsuario.razor.rz.scp.css
-c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Home.razor.rz.scp.css
+c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Aviso.razor.rz.scp.css

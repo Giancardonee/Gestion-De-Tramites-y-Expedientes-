@@ -7,20 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-        SGESqlite.Inicializar();
-        using var context = new SGEcontext();
+builder.Services.AddSingleton<SGESqlite>();
+SGESqlite.Inicializar();
+builder.Services.AddDbContext<SGEcontext>();
 
-// VALIDADORES
-builder.Services.AddSingleton<IValidadorUsuario, UsuarioValidador>();
-builder.Services.AddSingleton<IServicioHashContraseña, ServicioHashContraseña>();
-
-// CASOS DE USO 
+//==================================================
+// Caso de uso usuario alta. 
 builder.Services.AddTransient<CasoDeUsoUsuarioAlta>();
-
-builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
-
-// REPOSITORIOS
-builder.Services.AddScoped<IUsuarioRepositorio, RepositorioUsuario>(usuRepo => new RepositorioUsuario(context));
+// Registro de dependencias necesarias para CasoDeUsoUsuarioAlta
+builder.Services.AddScoped<IUsuarioRepositorio,RepositorioUsuario>();
+builder.Services.AddScoped<IValidadorUsuario, UsuarioValidador>();
+builder.Services.AddScoped<IServicioHashContraseña, ServicioHashContraseña>();
+//==================================================
 
 
 var app = builder.Build();

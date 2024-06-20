@@ -1,42 +1,90 @@
-﻿@page "/registrarUsuario"
-<div class="login-container">
-  <h2>Registrar Usuario</h2>
+﻿@page "/RegistrarUsuario"
+@rendermode InteractiveServer
+@using SGE.Aplicacion
+@using SGE.UI.Components
 
-  <form @submit.prevent="HandleRegistration">
-    <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" class="form-control" @bind="Nombre" required>
-    </div>
+@inject CasoDeUsoUsuarioAlta CUUA
 
-    <div class="form-group">
-      <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" class="form-control" @bind="Apellido" required>
-    </div>
-
-    <div class="form-group">
-      <label for="correoElectronico">Correo Electrónico:</label>
-      <input type="email" id="correoElectronico" class="form-control" @bind="CorreoElectronico" required>
-    </div>
-
-    <div class="form-group">
-      <label for="contrasena">Contraseña:</label>
-      <input type="password" id="contrasena" class="form-control" @bind="Contrasena" required>
-    </div>
-
-    <div class="form-group">
-      <label for="repetirContrasena">Repetir Contraseña:</label>
-      <input type="password" id="repetirContrasena" class="form-control" @bind="RepetirContrasena" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Registrarse</button>
-  </form>
+<h1>Registrar Usuario</h1>
+<h2>Por favor, ingrese todos los datos...</h2>
+<div>
+    <input placeholder="Nombre" @bind="usuarioNuevo.Nombre" class="form-control">
+</div>
+<div>
+    <input placeholder="Apellido" @bind="usuarioNuevo.Apellido" class="form-control">
+</div>
+<div>
+    <input placeholder="Correo" @bind="usuarioNuevo.Correo" class="form-control">
+</div>
+<div>
+    <input type="password" placeholder="Contraseña" @bind="usuarioNuevo.Contraseña"
+        class="form-control @(showError ? "error" : "")">
+    @if (showError)
+    {
+        <div class="error-message">Las contraseñas no coinciden</div>
+    }
+</div>
+<div>
+    <input type="password" placeholder="Repetir Contraseña" @bind="ContraseñaConfirm"
+        class="form-control @(showError ? "error" : "")">
+    @if (showError)
+    {
+        <div class="error-message">Las contraseñas no coinciden</div>
+    }
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="text-danger">
+            @ErrorMessage
+        </div>
+    }
+</div>
+<div>
+    <button class="btn btn-primary" @onclick="CrearUsuario">Aceptar</button>
 </div>
 
+<Aviso @ref="aviso"></Aviso>
+
 @code {
-    private String RepetirContrasena;
-    private String Nombre;
-    private String Apellido;
-    private String CorreoElectronico;
-    private String Contrasena;
-// ARREGLAR PARA PONER TODO EL HTML EN ESPAÑOL.
+
+
+private string ErrorMessage = "";
+
+    Aviso aviso;
+    Usuario usuarioNuevo = new Usuario();
+    string ContraseñaConfirm = "";
+    bool showError = false;
+    void CrearUsuario()
+    {
+        ErrorMessage = "";
+       try
+       {
+        if (usuarioNuevo.Contraseña.Equals(ContraseñaConfirm))
+            {
+                CUUA.Ejecutar(usuarioNuevo);
+                aviso?.Mostrar("Usuario registrado exitosamente!");
+                vaciarCampos();
+                showError = false;
+                ErrorMessage = "";
+            }
+            else
+            {
+                showError = true;
+            }
+       }
+       catch (Exception e)
+       {
+            ErrorMessage = e.Message;
+       }
+    }
+
+    void vaciarCampos()
+    {
+        ContraseñaConfirm="";
+        usuarioNuevo.Nombre="";
+        usuarioNuevo.Apellido="";
+        usuarioNuevo.Contraseña="";
+        usuarioNuevo.Correo="";
+    }
 }
+
+

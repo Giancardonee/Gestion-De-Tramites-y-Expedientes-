@@ -1,3 +1,22 @@
+/* _content/SGE.UI/Components/Aviso.razor.rz.scp.css */
+.dialogo-contenedor[b-xjc9dpmaga] {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogo-contenido[b-xjc9dpmaga]{
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+}
 /* _content/SGE.UI/Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-k716zha75e] {
     position: relative;
@@ -201,73 +220,6 @@ main[b-k716zha75e] {
         overflow-y: auto;
     }
 }
-/* _content/SGE.UI/Components/Pages/Home.razor.rz.scp.css */
-.TituloSGE[b-k41v1apwpe] {
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  height: 100px; 
-  background-color: #f2f2f2; 
-  border-bottom: 2px solid #ccc; 
-  padding: 20px; 
-  margin-bottom: 40px;
-  h1{
-    margin: 0; 
-    font-size: 40px; 
-    color: #fff;
-  }
-}
-
-
-
-.login-container[b-k41v1apwpe] {
-  width: 400px; 
-  margin: 0 auto; 
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h2[b-k41v1apwpe] {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form[b-k41v1apwpe] {
-  margin-bottom: 20px;
-}
-
-.form-group[b-k41v1apwpe] {
-  margin-bottom: 15px;
-}
-
-label[b-k41v1apwpe] {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="email"][b-k41v1apwpe],
-input[type="password"][b-k41v1apwpe] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-input[type="submit"][b-k41v1apwpe] {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-a[b-k41v1apwpe] {
-  color: #007bff;
-  text-decoration: none;
-}
 /* _content/SGE.UI/Components/Pages/MenuExpediente.razor.rz.scp.css */
 .text-center[b-5r3qmar66r] {
     display: flex;
@@ -355,43 +307,11 @@ a:hover[b-5r3qmar66r] {
     color: #3e8e41;
 }
 /* _content/SGE.UI/Components/Pages/RegistrarUsuario.razor.rz.scp.css */
-.login-container[b-55orr5pwx4] {
-    width: 400px; 
-    margin: 0 auto; 
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2[b-55orr5pwx4] {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group[b-55orr5pwx4] {
-    margin-bottom: 15px;
-  }
-  
-  label[b-55orr5pwx4] {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"][b-55orr5pwx4],
-  input[type="email"][b-55orr5pwx4],
-  input[type="password"][b-55orr5pwx4] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  button[type="submit"][b-55orr5pwx4] {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+
+   .error[b-55orr5pwx4] {
+        border-color: red;
+    }
+    .error-message[b-55orr5pwx4] {
+        color: red;
+        font-size: small;
+    }

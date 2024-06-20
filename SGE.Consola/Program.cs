@@ -79,15 +79,14 @@ class Program
 //===========================
 
 
-        // Usuario usuario1 = new Usuario("Gianluca","Cardone","micorreo@gmail.com","micontra1234");
-        // CUUAlta.Ejecutar(usuario1);
+         Usuario usuario1 = new Usuario("Gianluca","Cardone","micorreo@gmail.com","micontra1234");
+         CUUAlta.Ejecutar(usuario1);
         
         // Usuario usuario2 = new Usuario("Gianluca","Cardone","micodasdasdasrreo@gmail.com","micontra1234");
         // CUUAlta.Ejecutar(usuario2);
 
+    
         
-
-        CUPB.Ejecutar(2,Permiso.TramiteAlta.ToString());
 
 
         // if (servicioAutenticacion.IniciarSesion(usuario1)){

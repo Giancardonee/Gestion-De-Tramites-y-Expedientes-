@@ -8,7 +8,7 @@ public class Usuario
     public String Correo { get; set; }
     public String Contraseña { get; set; } // guardarla hasheada en la bd 
     public String? ListaPermisos { get; set; } // se encarga el administrador
-    
+
 
     public Usuario(String Nombre, String Apellido, String Correo, String Contraseña)
     {
@@ -34,5 +34,13 @@ public class Usuario
         this.Correo = Correo;
         this.Contraseña = Contraseña;
         this.Id = id;
+    }
+
+    public Usuario()
+    {
+        this.Nombre = "";
+        this.Apellido = "";
+        this.Contraseña = "";
+        this.ListaPermisos = "";
     }
 }
