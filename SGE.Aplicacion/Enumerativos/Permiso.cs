@@ -2,5 +2,5 @@
 
 public enum Permiso
 {
-    ExpedienteAlta, ExpedienteBaja, ExpedienteModificacion, TramiteAlta, TramiteBaja, TramiteModificacion
+    ExpedienteAlta, ExpedienteBaja, ExpedienteModificacion, TramiteAlta, TramiteBaja, TramiteModificacion,ModificarUsuario,ListarUsuarios,EliminarUsuario,ModificarPermiso
 }

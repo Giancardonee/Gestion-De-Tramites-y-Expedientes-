@@ -8,6 +8,7 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     {
         ChequearExisteCorreo(usuario.Correo);
         usuario.Contraseña = hashContraseña;
+        if (esUsuarioAdministrador()) asignarTodosLosPermisos(usuario);    
         context.Usuarios.Add(usuario);
         context.SaveChanges();
     }
@@ -67,9 +68,9 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     }
 
     // QUITAR PERMSISOS ADJUDICADOS DESDE LA UI !!
-    public void AgregarPermiso(Usuario usuario, String permisoAOtorgar)
+    public void AgregarPermiso(int Id, String permisoAOtorgar)
     {
-        var usuarioModificar = context.Usuarios.Where(u => u.Id == usuario.Id).SingleOrDefault();
+        var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
         if (usuarioModificar != null)
         {
             if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
@@ -87,9 +88,9 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     }
 
 
-    public void QuitarPermiso(Usuario usuario, String permisoAQuitar)
+    public void QuitarPermiso(int Id, String permisoAQuitar)
     {
-        var usuarioModificar = context.Usuarios.Where(u => u.Id == usuario.Id).SingleOrDefault();
+        var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
         if (usuarioModificar != null)
         {
             if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
@@ -112,5 +113,16 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
         {
             throw new RepositorioException("El correo ya esta en uso.");
         }
+    }
+
+    private bool esUsuarioAdministrador()
+    {
+        return !context.Usuarios.Any();
+    }
+
+    private void asignarTodosLosPermisos(Usuario usuario)
+    {
+        String permisos = String.Join(',',Enum.GetNames(typeof(Permiso)));
+        usuario.ListaPermisos = permisos;
     }
 }

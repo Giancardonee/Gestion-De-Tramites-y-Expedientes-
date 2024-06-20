@@ -1,0 +1,71 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SGE.UI
+build_property.RootNamespace = SGE.UI
+build_property.ProjectDir = C:\Users\Usuario\Desktop\sistema prueba\SGE.UI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Usuario\Desktop\sistema prueba\SGE.UI
+build_property._RazorSourceGeneratorDebug = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/DialogoConfirmacion.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEaWFsb2dvQ29uZmlybWFjaW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/PaginaPrincipal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYWdpbmFQcmluY2lwYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-k716zha75e
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-067s78a2ky
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-k41v1apwpe
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/MenuExpediente.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZW51RXhwZWRpZW50ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5r3qmar66r
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/RegistrarUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3RyYXJVc3VhcmlvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-55orr5pwx4

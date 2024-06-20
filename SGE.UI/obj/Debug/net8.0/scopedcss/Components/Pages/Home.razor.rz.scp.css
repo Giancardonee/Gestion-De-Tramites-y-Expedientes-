@@ -1,0 +1,66 @@
+.TituloSGE[b-k41v1apwpe] {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100px; 
+  background-color: #f2f2f2; 
+  border-bottom: 2px solid #ccc; 
+  padding: 20px; 
+  margin-bottom: 40px;
+  h1{
+    margin: 0; 
+    font-size: 40px; 
+    color: #fff;
+  }
+}
+
+
+
+.login-container[b-k41v1apwpe] {
+  width: 400px; 
+  margin: 0 auto; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2[b-k41v1apwpe] {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form[b-k41v1apwpe] {
+  margin-bottom: 20px;
+}
+
+.form-group[b-k41v1apwpe] {
+  margin-bottom: 15px;
+}
+
+label[b-k41v1apwpe] {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"][b-k41v1apwpe],
+input[type="password"][b-k41v1apwpe] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="submit"][b-k41v1apwpe] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+a[b-k41v1apwpe] {
+  color: #007bff;
+  text-decoration: none;
+}

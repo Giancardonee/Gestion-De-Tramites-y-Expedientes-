@@ -1,0 +1,42 @@
+﻿@page "/registrarUsuario"
+<div class="login-container">
+  <h2>Registrar Usuario</h2>
+
+  <form @submit.prevent="HandleRegistration">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" class="form-control" @bind="Nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" class="form-control" @bind="Apellido" required>
+    </div>
+
+    <div class="form-group">
+      <label for="correoElectronico">Correo Electrónico:</label>
+      <input type="email" id="correoElectronico" class="form-control" @bind="CorreoElectronico" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" class="form-control" @bind="Contrasena" required>
+    </div>
+
+    <div class="form-group">
+      <label for="repetirContrasena">Repetir Contraseña:</label>
+      <input type="password" id="repetirContrasena" class="form-control" @bind="RepetirContrasena" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+  </form>
+</div>
+
+@code {
+    private String RepetirContrasena;
+    private String Nombre;
+    private String Apellido;
+    private String CorreoElectronico;
+    private String Contrasena;
+// ARREGLAR PARA PONER TODO EL HTML EN ESPAÑOL.
+}

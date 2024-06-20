@@ -1,0 +1,280 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\SGE.UI.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+        "projectName": "SGE.Aplicacion",
+        "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
+        "projectName": "SGE.Autenticacion",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+                "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj",
+        "projectName": "SGE.Repositorios",
+        "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+                "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+              },
+              "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\SGE.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\SGE.UI.csproj",
+        "projectName": "SGE.UI",
+        "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\SGE.UI.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+                "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+              },
+              "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
+              },
+              "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj": {
+                "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

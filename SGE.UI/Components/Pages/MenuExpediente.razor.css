@@ -1,0 +1,85 @@
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Optional: Vertically align buttons */
+}
+
+.acciones-centradas {
+    display: flex; /* Enable Flexbox layout */
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+    gap: 10px; /* Add spacing between buttons (adjust as needed) */
+}
+
+.expediente-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-Editar {
+    background-color: #1987d7; /* Blue */
+}
+
+
+.btn-Eliminar {
+    background-color: #dc3545; /* Red */
+}
+
+.btn-ListarTramites{
+    background-color: #6e6e6e;
+}
+.expediente-list {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.expediente-list h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+a:hover {
+    color: #3e8e41;
+}

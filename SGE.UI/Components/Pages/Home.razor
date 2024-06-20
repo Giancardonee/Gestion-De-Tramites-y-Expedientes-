@@ -1,0 +1,51 @@
+﻿@page "/"
+
+@inject CasoDeUsoUsuarioAlta CasoDeUsoUsuarioAlta;
+@inject CasoDeUsoListarUsuarios CasoDeUsoListarUsuarios;
+<div class="TituloSGE"><h1>Sistema Gestion de Expedientes</h1></div>
+
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+
+  <form @submit.prevent="HandleLogin">
+    <div class="form-group">
+      <label for="correoElectronico">Correo Electrónico:</label>
+      <input type="email" id="correoElectronico" class="form-control" @bind="CorreoElectronico" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" class="form-control" @bind="Contraseña" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+  </form>
+
+  <p class="mt-3">¿No tenes una cuenta? <a href="/registrarUsuario">Registrarse</a></p>
+</div>
+
+@code {
+  private string CorreoElectronico = "";
+  private string Contraseña = "";
+
+  protected override void OnInitialized(){
+
+    Console.WriteLine("==============");
+
+    try {
+
+    CasoDeUsoUsuarioAlta.Ejecutar(new Usuario("nombre@gmail.com", "contraseña1"));
+    CasoDeUsoUsuarioAlta.Ejecutar(new Usuario("nombre2@gmail.com", "contraseña2"));
+    CasoDeUsoUsuarioAlta.Ejecutar(new Usuario("nombre3@gmail.com", "contraseña3"));
+    CasoDeUsoUsuarioAlta.Ejecutar(new Usuario("nombre4@gmail.com", "contraseña4"));
+
+    List<Usuario> users = CasoDeUsoListarUsuarios.Ejecutar();
+
+    foreach(Usuario usuario in users) {
+        Console.WriteLine($"Correo: {usuario.Correo}");
+    }
+    } catch(Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+  }
+}

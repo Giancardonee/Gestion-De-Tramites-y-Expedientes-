@@ -1,0 +1,85 @@
+.text-center[b-5r3qmar66r] {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Optional: Vertically align buttons */
+}
+
+.acciones-centradas[b-5r3qmar66r] {
+    display: flex; /* Enable Flexbox layout */
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+    gap: 10px; /* Add spacing between buttons (adjust as needed) */
+}
+
+.expediente-menu[b-5r3qmar66r] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn[b-5r3qmar66r] {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-Editar[b-5r3qmar66r] {
+    background-color: #1987d7; /* Blue */
+}
+
+
+.btn-Eliminar[b-5r3qmar66r] {
+    background-color: #dc3545; /* Red */
+}
+
+.btn-ListarTramites[b-5r3qmar66r]{
+    background-color: #6e6e6e;
+}
+.expediente-list[b-5r3qmar66r] {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.expediente-list h2[b-5r3qmar66r] {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+table[b-5r3qmar66r] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th[b-5r3qmar66r], td[b-5r3qmar66r] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th[b-5r3qmar66r] {
+    background-color: #f0f0f0;
+}
+
+ul[b-5r3qmar66r] {
+    list-style: none;
+    padding: 0;
+}
+
+li[b-5r3qmar66r] {
+    margin-bottom: 5px;
+}
+
+a[b-5r3qmar66r] {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+a:hover[b-5r3qmar66r] {
+    color: #3e8e41;
+}

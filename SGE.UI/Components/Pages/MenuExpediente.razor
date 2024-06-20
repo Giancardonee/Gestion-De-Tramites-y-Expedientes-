@@ -1,0 +1,126 @@
+﻿@using SGE.Aplicacion;
+@page "/menuExpediente";
+@using SGE.Aplicacion;
+
+<div class="expediente-menu">
+    <button class="btn btn-green" @onclick="OpenAgregarExpedienteForm">Agregar Expediente</button>
+</div>
+
+<div class="expediente-list hidden">
+    <h2>Lista de Expedientes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Numero de Expediente</th>
+                <th>Carátula</th>
+                <th>Fecha Creación</th>
+                <th>Fecha Última Modificación</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var expediente in Expedientes)
+            {
+                <tr>
+                    <td>@expediente.Id</td>
+                    <td>@expediente.Caratula</td>
+                    <td>@expediente.FechaCreacion.ToString("dd/MM/yyyy")</td>
+                    <td>@expediente.FechaModificacion.ToString("dd/MM/yyyy")</td>
+                    <td>@expediente.Estado</td>
+                    <td class="acciones-centradas"> <button class="btn btn-Editar"> Editar</button>
+                        <button class="btn btn-Eliminar"> Eliminar</button>
+                        <button class="btn btn-ListarTramites">Listar Tramites</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code{
+ private List<Expediente> Expedientes = new List<Expediente>()
+    {
+           new Expediente() { Id = 1, Caratula = "Expediente 1", FechaCreacion = DateTime.Now, FechaModificacion = DateTime.Now, UsuarioUltModificacion = 1, Estado = EstadoExpediente.Finalizado, Tramites = new List<Tramite>() { new Tramite() { Id = 1, ExpedienteId = 1, TipoTramite = EtiquetaTramite.EscritoPresentado, ContenidoTramite = "Solicitud de apertura de expediente" }, new Tramite() { Id = 2, ExpedienteId = 1, TipoTramite = EtiquetaTramite.Resolucion, ContenidoTramite = "Informe inicial" } } },
+        new Expediente() { Id = 2 ,Caratula = "Expediente 2", FechaCreacion = DateTime.Now, FechaModificacion = DateTime.Now, UsuarioUltModificacion = 1, Estado = EstadoExpediente.Finalizado, Tramites = new List<Tramite>() { new Tramite() { Id = 3, ExpedienteId = 2, TipoTramite = EtiquetaTramite.Resolucion, ContenidoTramite = "Resolución de apertura" } } },
+        new Expediente() { Id = 3, Caratula = "Expediente 3", FechaCreacion = DateTime.Now, FechaModificacion = DateTime.Now, UsuarioUltModificacion = 1, Estado = EstadoExpediente.Finalizado, Tramites = new List<Tramite>() { new Tramite() { Id = 4, ExpedienteId = 1, TipoTramite = EtiquetaTramite.Resolucion, ContenidoTramite = "Informe final" }, new Tramite() { Id = 5, ExpedienteId = 1, TipoTramite = EtiquetaTramite.EscritoPresentado, ContenidoTramite = "Certificado de cierre" } } }
+    };
+
+    private Expediente SelectedExpediente;
+
+    private int ExpedienteID;
+    private string Caratula;
+    private DateTime FechaCreacion;
+    private DateTime FechaModificacion;
+    private int UsuarioUltModificacion;
+    private EstadoExpediente Estado;
+    private List<Tramite> Tramites;
+
+    private string FormTitle = "Creación de Expediente";
+    private string FormButtonTitle = "Crear";
+
+    private bool ShowList = true;
+    private bool ShowAgregarForm = false;
+    private bool ShowModificarForm = false;
+    private bool ShowEliminarModal = false;
+     private void OpenAgregarExpedienteForm()
+    {
+        ExpedienteID = 0;
+        Caratula = "";
+        FechaCreacion = DateTime.Now;
+        FechaModificacion = DateTime.Now;
+        UsuarioUltModificacion = 1;
+        Estado = EstadoExpediente.Finalizado;
+        Tramites = new List<Tramite>();
+
+        FormTitle = "Creación de Expediente";
+        FormButtonTitle = "Crear";
+
+        ShowForm();
+    }
+
+    private void OpenEliminarModal(int id)
+    {
+        ShowEliminarModal = true;
+        SelectedExpediente = Expedientes.FirstOrDefault(e => e.Id == id);
+    }
+
+    private void CancelarEliminar()
+    {
+        ShowEliminarModal = false;
+        SelectedExpediente = null;
+    }
+
+    private void EliminarExpediente()
+    {
+        if (SelectedExpediente != null)
+        {
+            // Remove the expediente from the list
+            Expedientes.Remove(SelectedExpediente);
+                        ShowEliminarModal = false;
+            SelectedExpediente = null;
+        }
+    }
+
+     private void HideForm()
+    {
+        ShowAgregarForm = false;
+        ShowModificarForm = false;
+        ShowList = true;
+    }
+
+    private void ShowForm()
+    {
+        ShowList = false;
+        if (ExpedienteID == 0)
+        {
+            ShowAgregarForm = true;
+            ShowModificarForm = false;
+        }
+        else
+        {
+            ShowAgregarForm = false;
+            ShowModificarForm = true;
+        }
+    }
+}

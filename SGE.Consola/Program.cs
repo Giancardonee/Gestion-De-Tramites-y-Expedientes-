@@ -72,19 +72,29 @@ class Program
         CasoDeUsoUsuarioAlta CUUAlta = new CasoDeUsoUsuarioAlta(repoUsuario,validadorUsuario, hashContraseña);
         CasoDeUsoUsuarioBaja CUUBaja = new CasoDeUsoUsuarioBaja(repoUsuario);
         ServicioIniciarSesion servicioAutenticacion = new ServicioIniciarSesion(hashContraseña,repoUsuario);
+        CasoDeUsoPermisosAlta CUPA= new CasoDeUsoPermisosAlta(repoUsuario);
+        CasoDeUsoPermisoBaja  CUPB = new CasoDeUsoPermisoBaja (repoUsuario);
 
 
 //===========================
 
 
-        Usuario usuario1 = new Usuario("Gianluca","Cardone","micorreo@gmail.com","micontra1234");
-        //CUUAlta.Ejecutar(usuario1);
-
-        if (servicioAutenticacion.IniciarSesion(usuario1)){
-            Console.WriteLine("Iniciaste sesion.");
-        }
+        // Usuario usuario1 = new Usuario("Gianluca","Cardone","micorreo@gmail.com","micontra1234");
+        // CUUAlta.Ejecutar(usuario1);
         
-        Expediente exp = new Expediente () {Caratula = "Expediente 1"}; 
+        // Usuario usuario2 = new Usuario("Gianluca","Cardone","micodasdasdasrreo@gmail.com","micontra1234");
+        // CUUAlta.Ejecutar(usuario2);
+
+        
+
+        CUPB.Ejecutar(2,Permiso.TramiteAlta.ToString());
+
+
+        // if (servicioAutenticacion.IniciarSesion(usuario1)){
+        //     Console.WriteLine("Iniciaste sesion.");
+        // }
+        
+        //Expediente exp = new Expediente () {Caratula = "Expediente 1"}; 
 
 
 

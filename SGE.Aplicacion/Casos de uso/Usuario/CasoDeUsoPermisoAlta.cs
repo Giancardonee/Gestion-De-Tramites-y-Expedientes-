@@ -2,8 +2,8 @@ namespace SGE.Aplicacion;
 
 public class CasoDeUsoPermisosAlta (IUsuarioRepositorio repositorio)
 {
-    public void Ejecutar (Usuario usuario,String permisosAOtorgar)
+    public void Ejecutar (int id,String permisosAOtorgar)
     {
-        repositorio.AgregarPermiso(usuario,permisosAOtorgar);
+        repositorio.AgregarPermiso(id,permisosAOtorgar);
     }
 }

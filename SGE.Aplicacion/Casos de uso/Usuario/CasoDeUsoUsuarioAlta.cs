@@ -10,7 +10,7 @@ public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repoUsuario, IValidadorUs
         {
             validadorUsuario.ValidarCorreo(usuario.Correo);
             validadorUsuario.ValidarContraseña(usuario.Contraseña);
-            validadorUsuario.ValidarDemasCampos(usuario.Nombre,usuario.Contraseña);
+            validadorUsuario.ValidarDemasCampos(usuario.Nombre,usuario.Apellido);
             String hashContraseña = servicioHash.hashPassword(usuario.Contraseña);
             repoUsuario.RegistrarUsuario(usuario,hashContraseña);
         }
