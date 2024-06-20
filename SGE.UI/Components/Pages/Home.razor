@@ -1,6 +1,25 @@
 ﻿@page "/"
+@inject IServicioSesion ServicioSesion
+@using SGE.UI.Components
 
+@if (usuarioActual != null)
+{
+    <p>Usuario está logueado.</p>
+    <p>Nombre de usuario: @usuarioActual.Nombre</p>
+}
+else
+{
+    <Bienvenida></Bienvenida>
+}
 
 @code {
-
+    private Usuario? usuarioActual;
+    protected override void OnInitialized()
+    {
+        usuarioActual = ServicioSesion.GetUsuario();
+        if (usuarioActual != null)
+        {
+            Console.WriteLine($"Usuario logueado: {usuarioActual.Nombre}");
+        }
+    }
 }

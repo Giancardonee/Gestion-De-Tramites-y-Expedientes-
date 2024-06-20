@@ -3,7 +3,7 @@ namespace SGE.Autenticacion;
 
 public class CasoDeUsoIniciarSesion (IServicioIniciarSesion autenticador)
 {
-    public void Ejecutar(Usuario usuario) {
-        autenticador.IniciarSesion(usuario);
+    public bool Ejecutar(Usuario usuario) {
+        return autenticador.IniciarSesion(usuario);
     }
 }

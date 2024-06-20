@@ -2,8 +2,9 @@
 @rendermode InteractiveServer
 @using SGE.Aplicacion
 @using SGE.UI.Components
-
 @inject CasoDeUsoUsuarioAlta CUUA
+
+
 
 <h1>Registrar Usuario</h1>
 <h2>Por favor, ingrese todos los datos...</h2>
@@ -42,7 +43,7 @@
     <button class="btn btn-primary" @onclick="CrearUsuario">Aceptar</button>
 </div>
 
-<Aviso @ref="aviso"></Aviso>
+<Aviso @ref="aviso" urlRedirect="/iniciarSesion"></Aviso>
 
 @code {
 

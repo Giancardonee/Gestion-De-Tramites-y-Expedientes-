@@ -22,7 +22,7 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
         }
         else{
              throw new RepositorioException(
-                "AutenticarUsuario: Credenciales invalidas.");
+                "Correo o contraseña invalido.");
         }
     }
 
@@ -41,6 +41,11 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
             throw new RepositorioException(
                 "UsuarioBaja: El usuario que se intenta eliminar no existe.");
         }
+    }
+    
+    public Usuario? GetUsuario(String correo)
+    {
+          return context.Usuarios?.Where(u => u.Correo == correo).SingleOrDefault();
     }
     public void ModificarUsuario(Usuario usuario)
     {
@@ -104,6 +109,8 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
             throw new RepositorioException("AgregarPermisos: El usuario no existe.");
     }
 
+
+
     private void ChequearExisteCorreo(String correoNuevo)
     {
         bool existeMail = context.Usuarios 
@@ -125,4 +132,6 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
         String permisos = String.Join(',',Enum.GetNames(typeof(Permiso)));
         usuario.ListaPermisos = permisos;
     }
+
+
 }

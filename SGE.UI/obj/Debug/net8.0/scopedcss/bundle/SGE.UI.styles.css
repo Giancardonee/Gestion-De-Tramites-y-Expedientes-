@@ -17,6 +17,39 @@
     padding: 20px;
     background-color: white;
 }
+/* _content/SGE.UI/Components/Bienvenida.razor.rz.scp.css */
+.home-first-contenedor[b-p6k07roij4] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.botones-contenedor[b-p6k07roij4] {
+    display: flex;
+    justify-content: space-around;
+}
+ 
+.btn-ppal[b-p6k07roij4] {
+    background-image: linear-gradient(to right, #5C258D 0%, #4389A2  51%, #5C258D  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-ppal:hover[b-p6k07roij4] {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+  }
+ 
 /* _content/SGE.UI/Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-k716zha75e] {
     position: relative;

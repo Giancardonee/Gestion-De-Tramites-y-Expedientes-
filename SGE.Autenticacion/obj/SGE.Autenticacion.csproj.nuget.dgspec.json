@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {}
   },
   "projects": {
     "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
@@ -62,14 +62,14 @@
         }
       }
     },
-    "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
         "projectName": "SGE.Autenticacion",
-        "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"

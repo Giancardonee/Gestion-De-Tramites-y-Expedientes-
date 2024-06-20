@@ -9,4 +9,5 @@ public interface IUsuarioRepositorio
     public bool AutenticarUsuario(Usuario usuario,String hashContraseña);
     public void AgregarPermiso(int id, String permisoAOtorgar);
     public void QuitarPermiso(int id, String permisoAQuitar);
+    public Usuario? GetUsuario(String correo); 
 }

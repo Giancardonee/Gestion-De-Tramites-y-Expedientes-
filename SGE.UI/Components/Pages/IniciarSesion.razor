@@ -1,0 +1,34 @@
+﻿@page "/IniciarSesion"
+@rendermode InteractiveServer
+@using SGE.Aplicacion
+@inject CasoDeUsoIniciarSesion CUIS
+
+<h1>Iniciar sesion</h1>
+
+<div>
+    <input placeholder="Correo electronico" @bind="usuarioIniciar.Correo" class="form-control">
+    <input type="password" placeholder="Contraseña" @bind="usuarioIniciar.Contraseña" class="form-control">
+    <button class="btn btn-primary" @onclick="Autenticar">Iniciar sesion</button>
+    <p>¿No tienes cuenta? <a href="/RegistrarUsuario">Regístrate</a></p>
+    <Aviso @ref="aviso" urlRedirect="/"></Aviso>
+</div>
+@code {
+
+    Usuario usuarioIniciar = new Usuario();
+    Aviso aviso;
+
+    void Autenticar()
+    {
+        try
+        {
+            if (CUIS.Ejecutar(usuarioIniciar))
+            {
+                aviso?.Mostrar("Iniciaste sesion correctamente");
+            }
+        }
+        catch (Exception e)
+        {
+            aviso?.Mostrar(e.Message);
+        }
+    }
+}

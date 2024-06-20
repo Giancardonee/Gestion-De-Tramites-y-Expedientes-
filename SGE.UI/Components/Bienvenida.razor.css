@@ -1,0 +1,36 @@
+.home-first-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+  margin: 2.5rem; 
+}
+
+.botones-contenedor {
+    display: flex;
+    justify-content: space-around;
+}
+ 
+.btn-ppal {
+    background-image: linear-gradient(to right, #5C258D 0%, #4389A2  51%, #5C258D  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-ppal:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+  }
+ 

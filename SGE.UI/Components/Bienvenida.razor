@@ -1,0 +1,21 @@
+@rendermode InteractiveServer
+@inject NavigationManager Navegador
+
+<div class="home-first-contenedor">
+    <h1 class="title">Bienvenido al Sistema de Gestion de Expedientes</h1>
+    <div class="botones-contenedor">
+        <button class="btn-ppal" @onclick="RedirigirIniciarSesion">Iniciar Sesión</button>
+        <button class="btn-ppal" @onclick="RedirigirRegistrarse">Registrarse</button>
+    </div>
+</div>
+
+@code {
+
+    private void RedirigirIniciarSesion() {
+        Navegador.NavigateTo("IniciarSesion");
+    }
+
+    private void RedirigirRegistrarse() {
+        Navegador.NavigateTo("RegistrarUsuario");
+    }
+}

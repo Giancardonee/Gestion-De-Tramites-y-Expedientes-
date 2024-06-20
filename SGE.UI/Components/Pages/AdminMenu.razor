@@ -1,0 +1,100 @@
+@page "/menuAdmin"
+@using SGE.Aplicacion
+@rendermode InteractiveServer
+
+@inject CasoDeUsoListarUsuarios CULU;
+@inject CasoDeUsoUsuarioBaja CUUB;
+@inject CasoDeUsoUsuarioModificacion CUUM;
+@inject CasoDeUsoPermisosAlta CUPA;
+@inject CasoDeUsoPermisoBaja CUPB;
+@inject IServicioSesion ServicioSesion;
+@inject NavigationManager Navegador
+
+
+@if (ServicioSesion.esAdmin)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(ListaUsuarios != null) {
+
+            @foreach (var usuario in ListaUsuarios)
+            {
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Apellido</td>
+                    <td>@usuario.Correo</td>
+                    <td><button type="button" class="btn btn-primary">Modificar Datos</button></td>
+                    <td><button type="button" class="btn btn-primary">Agregar Permisos</button></td>
+                    <td><button type="button" class="btn btn-primary">Quitar Permisos</button></td>
+                    <td><button type="button" class="btn btn-danger" @onclick="()=> EliminarUsuario(usuario.Id)">Eliminar</button></td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <Aviso @ref="aviso" urlRedirect="/"></Aviso>
+}
+
+
+
+@code {
+
+    private List<Usuario>? ListaUsuarios;
+    
+    Aviso aviso;
+    void ModificarUsuario()
+    {
+
+    }
+
+    void EliminarUsuario(int idBorrar)
+    {
+        try
+        {
+            CUUB.Ejecutar(idBorrar);
+            aviso?.Mostrar("Se elimino el usuario correctamente.");
+        }
+        catch (Exception e)
+        {
+            Console.Writeline(e.Message);
+            aviso?.Mostrar(e);
+        }
+    }
+    void QuitarPermiso()
+    {
+
+    }
+
+    void AgregarPermiso()
+    {
+
+    }
+    
+    protected override void OnInitialized()
+    {
+        if (!ServicioSesion.esAdmin)
+        {
+            aviso.Mostrar("No tenés permisos de admin!");
+        }
+        else
+        {
+            ListaUsuarios = CULU.Ejecutar();
+        }
+    }
+}

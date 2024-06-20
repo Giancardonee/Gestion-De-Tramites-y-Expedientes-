@@ -1,4 +1,5 @@
 ﻿@rendermode InteractiveServer
+@inject NavigationManager Navegador;
 @if (visible)
 {
     <div class="dialogo-contenedor">
@@ -13,6 +14,8 @@
     private bool visible = false;
     [Parameter]
     public string Mensaje { get; set; } = "";
+    [Parameter]
+    public string urlRedirect {get; set;}
     public void Mostrar(string mensaje)
     {
         Mensaje = mensaje;
@@ -23,6 +26,9 @@
     {
         visible = false;
         OnConfirmado.InvokeAsync();
+        if(!String.IsNullOrEmpty(urlRedirect)) {
+          Navegador.NavigateTo(urlRedirect);
+        }
     }
     [Parameter]
     public EventCallback OnConfirmado { get; set; }
