@@ -1,0 +1,104 @@
+@page "/expediente/{Id:int?}"
+@rendermode InteractiveServer
+
+@inject NavigationManager Navegador
+@inject CasoDeUsoExpedienteAlta CUEA
+@inject CasoDeUsoExpedienteConsultaPorId CUEConsultaPorId
+@inject CasoDeUsoExpedienteModificacion CUEM
+@inject IServicioSesion ServicioSesion
+
+
+@if (_esNuevo)
+{
+    <h3 class="text-primary">Añadiendo Expediente</h3>
+}
+else
+{
+    <h3 class="text-primary">Modificando Expediente "@exp.Id"</h3>
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="expediente" class="form-label">Caratula</label>
+            <input id="expediente" placeholder="Caratula" @bind="exp.Caratula" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="tipoTramite" class="form-label">Estado del expediente (0..4)</label>
+            <input id="tipoTramite" placeholder="Estado del expediente" @bind="exp.Estado" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+<h6 class="text-danger text-center">@mensaje</h6>
+
+@code {
+    Expediente exp = new Expediente();
+    [Parameter] public int? Id { get; set; }
+
+    string mensaje = "";
+
+    bool _esNuevo = true;
+    protected override void OnParametersSet()
+    {
+        if (Id != null)
+        {
+            var expEncontrado = CUEConsultaPorId.Ejecutar(Id.Value);
+            if (expEncontrado != null)
+            {
+                exp = expEncontrado;
+                _esNuevo = false;
+            }
+        }
+    }
+
+    void Aceptar()
+    {
+        bool exitoso = false;
+        if (_esNuevo)
+        {
+            try
+            {
+                if (ServicioSesion.GetUsuario() != null)
+                {
+                    CUEA.Ejecutar(exp, ServicioSesion.GetUsuario());
+                    exitoso = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                Console.WriteLine(ex);
+            }
+        }
+        else
+        {
+            try
+            {
+                if (ServicioSesion.GetUsuario() != null)
+                {
+                    CUEM.Ejecutar(exp, ServicioSesion.GetUsuario());
+                    exitoso = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                Console.WriteLine(ex);
+            }
+        }
+        if (exitoso)
+        {
+            mensaje = "";
+            exp = new Expediente();
+            Navegador.NavigateTo("listaExpediente");
+        }
+    }
+
+}

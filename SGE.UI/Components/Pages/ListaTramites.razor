@@ -1,0 +1,88 @@
+@page "/listaTramites";
+@rendermode InteractiveServer
+@inject IServicioSesion ServicioSesion
+@inject NavigationManager Navegador
+@inject CasoDeUsoTramiteBaja CUTB
+@inject CasoDeUsoTramiteConsultaTodos CUTCT
+
+
+<div class="expediente-menu">
+    <button class="btn btn-green" @onclick="()=>AgregarTramite()">Agregar Trámite</button>
+</div>
+
+<div class="expediente-list hidden">
+    <h2>Lista de Trámites</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>E. Asociado</th>
+                <th>Tipo</th>
+                <th>Contenido</th>
+                <th>Fecha creacion</th>
+                <th>Fecha ult modificacion</th>
+                <th>Usuario ult modificacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tramite in Tramites)
+            {
+                <tr>
+                    <td>@tramite.Id</td>
+                    <td>@tramite.ExpedienteId</td>
+                    <td>@tramite.TipoTramite</td>
+                    <td>@tramite.ContenidoTramite</td>
+                    <td>@tramite.FechaCreacion</td>
+                    <td>@tramite.FechaUltModificacion</td>
+                    <td>@tramite.UsuarioUltModificacion</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="()=>ModificarTramite(tramite.Id)">Editar</button>
+                        <button class="btn btn-danger" @onclick="()=>EliminarTramite(tramite)">Eliminar</button>
+                    </td>
+                </tr>
+                }
+        </tbody>
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="text-danger">
+                @ErrorMessage
+            </div>
+        }
+    </table>
+</div>
+
+@code {
+    private string ErrorMessage = "";
+    List<Tramite> Tramites = new List<Tramite>();
+   
+    protected override void OnInitialized()
+    {     
+        Tramites = CUTCT.Ejecutar();      
+    }
+
+    private void EliminarTramite(Tramite t)
+    {
+        try
+        {
+            if (ServicioSesion.GetUsuario() != null)
+            {
+                CUTB.Ejecutar(t.Id, ServicioSesion.GetUsuario());
+                ErrorMessage = "";
+                Tramites = CUTCT.Ejecutar();
+            }
+        }
+        catch (Exception exc)
+        {
+            ErrorMessage = exc.Message;
+        }
+    }
+
+    private void AgregarTramite()
+    {
+        Navegador.NavigateTo("tramite");
+    }
+    private void ModificarTramite(int id)
+    {
+        Navegador.NavigateTo($"tramite/{id}");
+    }
+}

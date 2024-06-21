@@ -1,4 +1,5 @@
 @rendermode InteractiveServer
+<!-- 
 
 <div class="modal-backdrop fade @(Visible ? "show" : "")"></div>
 <div class="modal fade @(Visible ? "show" : "")" tabindex="-1" style="display: @(Visible ? "block" : "none");"
@@ -19,13 +20,17 @@
 </div>
 
 @code {
-    [Parameter] public bool Visible { get; set; }
-    [Parameter] public string Titulo? { get; set; }
-    [Parameter] public RenderFragment Contenido? { get; set; }
+    [Parameter]
+    public bool Visible { get; set; }
+    [Parameter]
+    public string Titulo? { get; set; }
+    [Parameter]
+    public RenderFragment Contenido? { get; set; }
 
-private void CerrarModal()
+public void CerrarModal()
 {
     Visible = false;
 }
 
 }
+ -->

@@ -257,28 +257,28 @@ main[b-k716zha75e] {
         overflow-y: auto;
     }
 }
-/* _content/SGE.UI/Components/Pages/MenuExpediente.razor.rz.scp.css */
-.text-center[b-5r3qmar66r] {
+/* _content/SGE.UI/Components/Pages/ListaExpediente.razor.rz.scp.css */
+.text-center[b-wk38e5omu9] {
     display: flex;
     justify-content: center;
     align-items: center; /* Optional: Vertically align buttons */
 }
 
-.acciones-centradas[b-5r3qmar66r] {
+.acciones-centradas[b-wk38e5omu9] {
     display: flex; /* Enable Flexbox layout */
     justify-content: center; /* Center buttons horizontally */
     align-items: center; /* Center buttons vertically */
     gap: 10px; /* Add spacing between buttons (adjust as needed) */
 }
 
-.expediente-menu[b-5r3qmar66r] {
+.expediente-menu[b-wk38e5omu9] {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.btn[b-5r3qmar66r] {
+.btn[b-wk38e5omu9] {
     background-color: #4CAF50; /* Green */
     color: white;
     padding: 10px 20px;
@@ -288,59 +288,59 @@ main[b-k716zha75e] {
     transition: background-color 0.3s ease;
 }
 
-.btn-Editar[b-5r3qmar66r] {
+.btn-Editar[b-wk38e5omu9] {
     background-color: #1987d7; /* Blue */
 }
 
 
-.btn-Eliminar[b-5r3qmar66r] {
+.btn-Eliminar[b-wk38e5omu9] {
     background-color: #dc3545; /* Red */
 }
 
-.btn-ListarTramites[b-5r3qmar66r]{
+.btn-ListarTramites[b-wk38e5omu9]{
     background-color: #6e6e6e;
 }
-.expediente-list[b-5r3qmar66r] {
+.expediente-list[b-wk38e5omu9] {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 5px;
 }
 
-.expediente-list h2[b-5r3qmar66r] {
+.expediente-list h2[b-wk38e5omu9] {
     margin-top: 0;
     margin-bottom: 20px;
 }
 
-table[b-5r3qmar66r] {
+table[b-wk38e5omu9] {
     width: 100%;
     border-collapse: collapse;
 }
 
-th[b-5r3qmar66r], td[b-5r3qmar66r] {
+th[b-wk38e5omu9], td[b-wk38e5omu9] {
     padding: 8px;
     border: 1px solid #ddd;
     text-align: left;
 }
 
-th[b-5r3qmar66r] {
+th[b-wk38e5omu9] {
     background-color: #f0f0f0;
 }
 
-ul[b-5r3qmar66r] {
+ul[b-wk38e5omu9] {
     list-style: none;
     padding: 0;
 }
 
-li[b-5r3qmar66r] {
+li[b-wk38e5omu9] {
     margin-bottom: 5px;
 }
 
-a[b-5r3qmar66r] {
+a[b-wk38e5omu9] {
     text-decoration: none;
     color: #4CAF50;
 }
 
-a:hover[b-5r3qmar66r] {
+a:hover[b-wk38e5omu9] {
     color: #3e8e41;
 }
 /* _content/SGE.UI/Components/Pages/RegistrarUsuario.razor.rz.scp.css */

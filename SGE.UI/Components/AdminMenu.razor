@@ -54,13 +54,7 @@
 
         //<Modal @bind-Visible="@modalAgregarPermisos" Titulo="Agregar Permisos"> </Modal>
         
-        <Modal @bind-Visible="@modalQuitarPermisos" Titulo="Quitar Permisos">
-        @if (QuitarPermisoContent != null){
-            <div>
-                @QuitarPermisoContent
-            </div>
-        }
-        </Modal>
+        //<Modal @bind-Visible="@modalQuitarPermisos" Titulo="Quitar Permisos"></Modal>
         
         //<Modal @bind-Visible="@modalModificar" Titulo="Modificar Datos"> </Modal>
 }
@@ -70,15 +64,11 @@ else
 }
 
 
-
 @code {
-    private bool modalAgregarPermisos = true;
-    private bool modalQuitarPermisos = false;
-    private bool modalModificar = false;
+    public bool modalAgregarPermisos = true;
+    public bool modalQuitarPermisos = false;
+    public bool modalModificar = false;
 
-    private RenderFragment QuitarPermisoContent;
-    private string AgregarPermisoContent = "";
-    private string ModificarUsuarioContent = "";
 
     private List<Usuario>? ListaUsuarios;
     Aviso aviso;
@@ -113,26 +103,7 @@ else
 
     void QuitarPermiso(Usuario usuario)
     {
-        var permisosFiltrados = new List<Permiso>();
-        if(!String.IsNullOrEmpty(usuario.ListaPermisos)){
-         permisosFiltrados = Permiso.GetValues(typeof(Permiso)).Cast<Permiso>()
-                .Where(p => !usuario.ListaPermisos.Split(",").Contains(p.ToString()))
-                .ToList();
-        }
-       QuitarPermisoContent = builder =>
-        {
-            builder.OpenElement(0, "div");
-            foreach (var permiso in permisosFiltrados)
-            {
-                builder.OpenElement(1, "button");
-                builder.AddAttribute(2, "type", "button");
-                builder.AddAttribute(3, "class", "btn btn-primary");
-                builder.AddAttribute(4, "onclick", EventCallback.Factory.Create(this, () => CUPB.Ejecutar(usuario.Id, permiso.ToString())));
-                builder.AddContent(5, permiso.ToString());
-                builder.CloseElement();
-            }
-            builder.CloseElement();
-        
+     
     }
 
     void AgregarPermiso(Usuario usuario)

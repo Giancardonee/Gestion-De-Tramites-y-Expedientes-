@@ -1266,11 +1266,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
-              "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+            "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
             },
-            "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
-              "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
+            "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
             },
             "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj": {
               "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj"

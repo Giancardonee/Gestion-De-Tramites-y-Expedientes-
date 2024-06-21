@@ -1,0 +1,102 @@
+﻿@page "/listaExpediente";
+@rendermode InteractiveServer
+@using SGE.Aplicacion
+
+
+@inject IServicioSesion ServicioSesion
+@inject NavigationManager Navegador
+@inject CasoDeUsoExpedienteBaja CUEB
+@inject CasoDeUsoExpedienteConsultaTodos CUECT
+
+
+<div class="expediente-menu">
+    <button class="btn btn-green" @onclick="()=>AgregarExpediente()">Agregar Expediente</button>
+</div>
+
+<div class="expediente-list hidden">
+    <h2>Lista de Expedientes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Numero de Expediente</th>
+                <th>Carátula</th>
+                <th>Fecha Creación</th>
+                <th>Fecha Última Modificación</th>
+                <th>Estado</th>
+                <th>Lista de Trámites</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var expediente in Expedientes)
+            {
+                <tr>
+                    <td>@expediente.Id</td>
+                    <td>@expediente.Caratula</td>
+                    <td>@expediente.FechaCreacion.ToString("dd/MM/yyyy")</td>
+                    <td>@expediente.FechaModificacion.ToString("dd/MM/yyyy")</td>
+                    <td>@expediente.Estado</td>
+                    <td>
+                        @if (expediente.Tramites != null)
+                        {
+                            @foreach (var tramite in expediente.Tramites)
+                            {
+                                <span>@tramite.Id</span>
+                            }
+                        }
+                    </td>
+                    <td class="acciones-centradas">
+                        <button class="btn btn-Editar" @onclick="()=>ModificarExpediente(expediente.Id)"> Editar</button>
+                        <button class="btn btn-Eliminar" @onclick="()=>EliminarExpediente(expediente)"> Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="text-danger">
+                @ErrorMessage
+            </div>
+        }
+    </table>
+</div>
+
+
+
+@code {
+    private string ErrorMessage = "";
+    List<Expediente> Expedientes = new List<Expediente>();
+
+    protected override void OnInitialized()
+    {
+        Expedientes = CUECT.Ejecutar();
+    }
+
+
+    private void EliminarExpediente(Expediente e)
+    {
+        try
+        {
+            if (ServicioSesion.GetUsuario() != null)
+            {
+                CUEB.Ejecutar(e.Id, ServicioSesion.GetUsuario());
+                ErrorMessage = "";
+                Expedientes = CUECT.Ejecutar();
+            }
+        }
+        catch (Exception exc)
+        {
+            ErrorMessage = exc.Message;
+        }
+    }
+
+    private void AgregarExpediente()
+    {
+        Navegador.NavigateTo("expediente");
+    }
+    private void ModificarExpediente(int id)
+    {
+        Navegador.NavigateTo($"expediente/{id}");
+    }
+
+}

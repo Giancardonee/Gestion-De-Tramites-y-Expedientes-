@@ -65,7 +65,7 @@ c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\refint\SGE.UI.dl
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\SGE.UI.pdb
 C:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\SGE.UI.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\ref\SGE.UI.dll
-c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\MenuExpediente.razor.rz.scp.css
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\RegistrarUsuario.razor.rz.scp.css
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Aviso.razor.rz.scp.css
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Bienvenida.razor.rz.scp.css
+c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\ListaExpediente.razor.rz.scp.css

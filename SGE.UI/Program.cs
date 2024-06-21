@@ -14,6 +14,13 @@ SGESqlite.Inicializar();
 builder.Services.AddDbContext<SGEcontext>();
 
 
+// Caso de uso autenticar usuario
+builder.Services.AddTransient<CasoDeUsoIniciarSesion>();
+// Registro de dependencias necesarias para CasoDeUsoIniciarSesion
+builder.Services.AddSingleton<IServicioSesion, ServicioSesion>();
+builder.Services.AddScoped<IServicioIniciarSesion, ServicioIniciarSesion>();
+//==================================================
+
 //==================================================
 
 
@@ -25,13 +32,24 @@ builder.Services.AddTransient<CasoDeUsoExpedienteConsultaPorId>();
 builder.Services.AddTransient<CasoDeUsoExpedienteConsultaTodos>();
 builder.Services.AddTransient<CasoDeUsoExpedienteConTramitesAsociados>();
 
+// Casos de uso de Tramite
+builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
+builder.Services.AddTransient<CasoDeUsoTramiteBaja>();
+builder.Services.AddTransient<CasoDeUsoTramiteConsultaPorId>();
+builder.Services.AddTransient<CasoDeUsoTramiteConsultaPorEtiqueta>();
+builder.Services.AddTransient<CasoDeUsoTramiteModificacion>();
+builder.Services.AddTransient<CasoDeUsoTramiteConsultaTodos>();
 
 // Registro de dependencias de caso de uso de expedientes
 builder.Services.AddScoped<IExpedienteRepositorio,RepositorioExpediente>();
 builder.Services.AddScoped<IValidadorExpediente, ExpedienteValidador>();
-builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
+
 
 // Registro de dependencias de caso de uso de tramites 
+builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
+builder.Services.AddScoped<IValidadorTramite, TramiteValidador>();
+builder.Services.AddScoped<ServicioActualizacionEstado>();
+builder.Services.AddScoped<EspecificacionCambioEstado>();
 builder.Services.AddScoped<ITramiteRepositorio,RepositorioTramite>();
 
 
@@ -47,13 +65,6 @@ builder.Services.AddScoped<IUsuarioRepositorio,RepositorioUsuario>();
 builder.Services.AddScoped<IValidadorUsuario, UsuarioValidador>();
 builder.Services.AddScoped<IServicioHashContraseña, ServicioHashContraseña>();
 
-//==================================================
-
-// Caso de uso autenticar usuario
-builder.Services.AddTransient<CasoDeUsoIniciarSesion>();
-// Registro de dependencias necesarias para CasoDeUsoIniciarSesion
-builder.Services.AddSingleton<IServicioSesion, ServicioSesion>();
-builder.Services.AddScoped<IServicioIniciarSesion, ServicioIniciarSesion>();
 //==================================================
 
 var app = builder.Build();

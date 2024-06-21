@@ -1,22 +1,34 @@
+@page "/expedienteAlta";
 @rendermode InteractiveServer
 @using SGE.Aplicacion;
-@inject CasoDeUsoExpedienteAlta CUEA; 
+@inject CasoDeUsoExpedienteAlta CUEA;
 @inject IServicioSesion ServicioSesion;
 
 <h1>Añadir nuevo expediente</h1>
 <form>
-    <input placeholder="Caratula" @bind="nuevoExpendiente.Caratula" class="form-control">
-    <button class="btn-d-alta" @onclick="AgregarExpediente">Dar de alta</button>
+    <input placeholder="Caratula" @bind="caratula" class="form-control">
+    <button class="btn btn-primary" @onclick="AgregarExpediente">Dar de alta</button>
 </form>
 
+<Aviso @ref="aviso" urlRedirect="listaExpediente"></Aviso>
+
 @code {
-    private Expediente nuevoExpendiente = new Expediente();
-    
-     void AgregarExpediente() {
-       try
-       {
-            CUEA.Ejecutar(nuevoExpediente,ServicioSesion.GetUsuario());
-       }
+
+    String caratula;
+    Aviso aviso;
+
+
+    void AgregarExpediente()
+    {
+        Expediente nuevoExpediente = new Expediente(caratula);
+        try
+        {
+            if (ServicioSesion.GetUsuario() != null)
+            {
+                CUEA.Ejecutar(nuevoExpediente, ServicioSesion.GetUsuario());
+                aviso?.Mostrar("Expediente registrado exitosamente.");
+            }
+        }
         catch (AutorizacionException error)
         {
             Console.WriteLine(error.Message);
@@ -30,7 +42,7 @@
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
-          throw; 
+            throw;
         }
     }
 }

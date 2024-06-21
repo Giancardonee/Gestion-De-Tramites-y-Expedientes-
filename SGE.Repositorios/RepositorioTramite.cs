@@ -22,6 +22,17 @@ public class RepositorioTramite(SGEcontext context) : ITramiteRepositorio
             throw new RepositorioException("El tramite que se intenta eliminar no existe.");
     }
 
+    public Tramite TramiteConsultaPorId(int idTramite)
+    {
+        var tramite = context.Tramites.Where(t => t.Id == idTramite).SingleOrDefault();
+        if (tramite != null)// es porque existe el tramite.
+        {
+            return tramite;
+        }
+        else
+            throw new RepositorioException("El tramite que se busca no existe.");
+    }
+
     public void TramiteModificacion(Tramite tModificar)
     {
         var tramiteModificar = context.Tramites.Where(t => t.Id == tModificar.Id).SingleOrDefault();
@@ -55,7 +66,7 @@ public class RepositorioTramite(SGEcontext context) : ITramiteRepositorio
 
     public List<Tramite> TramiteConsultaPorIdExpediente(int idExpediente)
     {
-        var tramitesFiltrados =   context.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList();
+        var tramitesFiltrados = context.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList();
         if (tramitesFiltrados.Count == 0)
             throw new RepositorioException("TramiteConsultaPorIdExpediente: el expediente no tiene trámites asociados.");
         return tramitesFiltrados;
@@ -64,7 +75,20 @@ public class RepositorioTramite(SGEcontext context) : ITramiteRepositorio
     public Tramite TramiteConsultaUltimo()
     {
         var ultimoTramite = context.Tramites.OrderByDescending(t => t.Id).First();
-        if (ultimoTramite == null) return new Tramite(){Id=0};
+        if (ultimoTramite == null) return new Tramite() { Id = 0 };
         else return ultimoTramite;
+    }
+
+    public List<Tramite> TramiteConsultaTodos()
+    {
+        var listaTramites = context.Tramites.ToList();
+        if (listaTramites.Any())
+        {
+            return listaTramites;
+        }
+        else
+        {
+            throw new RepositorioException("No se encontraron trámites.");
+        }
     }
 }
