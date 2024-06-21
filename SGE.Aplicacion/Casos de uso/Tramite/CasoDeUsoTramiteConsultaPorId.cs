@@ -7,12 +7,11 @@ public class CasoDeUsoTramiteConsultaPorId(ITramiteRepositorio repoTramite)
         Tramite tramite = new Tramite();
         try
         {   
-            tramite = repoTramite.TramiteConsultaPorId(idTramite);
+            return repoTramite.TramiteConsultaPorId(idTramite);
         }
         catch (RepositorioException exc)
         {
-            Console.WriteLine(exc.Message);
+            throw; 
         }
-        return tramite;
     }
 }

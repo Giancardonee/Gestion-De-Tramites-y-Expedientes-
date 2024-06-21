@@ -1,0 +1,13 @@
+<!--  IServicioSesion ServicioSesion; 
+NavigationManager Navegador
+
+<h2>¡Bienvenido/a al Sistema de Gestion, @ServicioSesion.GetUsuario().Nombre!</h2>
+<button @onclick="Cerrar()">Cerrar sesión</button>
+
+@code 
+{
+    void Cerrar() {
+        ServicioSesion.LogOut(); 
+        Navegador.NavigateTo("/");
+    }
+} -->

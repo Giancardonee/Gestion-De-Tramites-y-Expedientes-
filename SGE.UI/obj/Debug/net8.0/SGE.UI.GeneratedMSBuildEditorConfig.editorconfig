@@ -18,78 +18,82 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = c:\Users\Usuario\Desktop\sistema prueba\SGE.UI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/AdminMenu.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/AdminMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBZG1pbk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/App.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/DialogoConfirmacion.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/DialogoConfirmacion.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEaWFsb2dvQ29uZmlybWFjaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/ExpedienteAlta.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/ExpedienteAlta.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFeHBlZGllbnRlQWx0YS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Error.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/ExpedienteModificacion_y_Alta.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/ExpedienteModificacion_y_Alta.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFeHBlZGllbnRlTW9kaWZpY2FjaW9uX3lfQWx0YS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Home.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/IniciarSesion.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/IniciarSesion.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmljaWFyU2VzaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/TramiteModificacion_y_Alta.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/TramiteModificacion_y_Alta.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFtaXRlTW9kaWZpY2FjaW9uX3lfQWx0YS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/UsuarioModificarPermisos.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/UsuarioModificarPermisos.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3VhcmlvTW9kaWZpY2FyUGVybWlzb3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Routes.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/_Imports.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Saludo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTYWx1ZG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Aviso.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Aviso.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBdmlzby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-xjc9dpmaga
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Bienvenida.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCaWVudmVuaWRhLnJhem9y
-build_metadata.AdditionalFiles.CssScope = b-p6k07roij4
-
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Layout/MainLayout.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-k716zha75e
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Layout/NavMenu.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-067s78a2ky
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/ListaExpediente.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-o7xt5ruufs
+
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/ListaExpediente.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YUV4cGVkaWVudGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-wk38e5omu9
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/ListaTramites.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/ListaTramites.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YVRyYW1pdGVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-g48ukx8u3v
 
-[C:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/RegistrarUsuario.razor]
+[c:/Users/Usuario/Desktop/sistema prueba/SGE.UI/Components/Pages/RegistrarUsuario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3RyYXJVc3VhcmlvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-55orr5pwx4

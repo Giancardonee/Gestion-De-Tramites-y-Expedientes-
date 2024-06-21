@@ -4,22 +4,43 @@
 @inject NavigationManager Navegador
 @inject CasoDeUsoTramiteBaja CUTB
 @inject CasoDeUsoTramiteConsultaTodos CUTCT
+@inject CasoDeUsoTramiteConsultaPorId CUTCID
+@inject CasoDeUsoTramiteConsultaPorEtiqueta CUTCPE
 
 
-<div class="tramite-menu">
-    <button class="btn btn-green" @onclick="()=>AgregarTramite()">Agregar Trámite</button>
-</div>
 
 <div class="tramite-list hidden">
     <h2>Lista de Trámites</h2>
-    <input type="text" @bind="">
-    <button class="btn btn-primary">Buscar por id:</button>
-    <table>
+    <div style="display: flex; margin: 8px; justify-content: space-between">
+        <div style="display: flex; gap:10px">
+            <input type="text" @bind="idBusqueda">
+            <button class="btn btn-primary" @onclick="()=> buscarPorId(idBusqueda)">Buscar por id:</button>
+        </div>
+
+        <div style="display: flex; gap:10px">
+            <select @bind="etiquetaBusqueda" class="form-select" style="max-width: 200px;">
+                @if (etiquetas != null)
+                {
+                    @foreach (var etiqueta in etiquetas)
+                    {
+                        <option value="@etiqueta">@etiqueta</option>
+                    }
+                }
+            </select>
+            <button class="btn btn-primary" @onclick="()=> buscarPorEtiqueta(etiquetaBusqueda)">Buscar por
+                etiqueta:</button>
+        </div>
+
+        <button class="btn btn-primary" @onclick="()=> buscarTramites()">Buscar todos</button>
+        <button class="btn btn-green" @onclick="()=>AgregarTramite()">Agregar Trámite</button>
+
+    </div>
+    <table class="mt-5">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>E. Asociado</th>
-                <th>Tipo</th>
+                <th>Etiqueta Tramite</th>
                 <th>Contenido</th>
                 <th>Fecha creacion</th>
                 <th>Fecha ult modificacion</th>
@@ -28,8 +49,11 @@
             </tr>
         </thead>
         <tbody>
+            @if (Tramites!= null)
+            {
             @foreach (var tramite in Tramites)
             {
+
                 <tr>
                     <td>@tramite.Id</td>
                     <td>@tramite.ExpedienteId</td>
@@ -43,6 +67,7 @@
                         <button class="btn btn-Eliminar" @onclick="()=>EliminarTramite(tramite)">Eliminar</button>
                     </td>
                 </tr>
+                }
             }
         </tbody>
         @if (!string.IsNullOrEmpty(ErrorMessage))
@@ -55,14 +80,30 @@
 </div>
 
 @code {
+    private int idBusqueda;
+    private EtiquetaTramite etiquetaBusqueda;
+    private List<EtiquetaTramite> etiquetas;
+
+
     private string ErrorMessage = "";
     List<Tramite> Tramites = new List<Tramite>();
-   
+
     protected override void OnInitialized()
-    {     
-        Tramites = CUTCT.Ejecutar();      
+    {
+        Tramites = CUTCT.Ejecutar();
+        //etiquetas = Enum.GetValues(typeof(EtiquetaTramite)).Cast<EtiquetaTramite>().ToList();
+        etiquetas = Enum.GetNames(typeof(EtiquetaTramite))
+        .Select(name => (EtiquetaTramite)Enum.Parse(typeof(EtiquetaTramite), name))
+        .ToList();
+
+
     }
 
+
+    private void buscarTramites()
+    {
+        Tramites = CUTCT.Ejecutar();
+    }
     private void EliminarTramite(Tramite t)
     {
         try
@@ -88,4 +129,22 @@
     {
         Navegador.NavigateTo($"tramite/{id}");
     }
+    private void buscarPorId(int id)
+    {
+        try
+        {
+            Tramites = new List<Tramite> { CUTCID.Ejecutar(id) };
+        }
+        catch (Exception e)
+        {
+            Tramites=null;
+            Console.WriteLine(e.Message);
+        }
+        
+    }
+    private void buscarPorEtiqueta(EtiquetaTramite etiqueta)
+    {
+        Tramites = CUTCPE.Ejecutar(etiqueta);
+    }
+
 }
