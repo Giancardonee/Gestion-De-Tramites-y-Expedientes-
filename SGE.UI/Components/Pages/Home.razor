@@ -9,10 +9,15 @@
 {
     <AdminMenu></AdminMenu>
 }
+else if (usuarioActual != null)
+{
+   <h2>Bienvenido/a @usuarioActual.Nombre</h2>
+}
 else
 {
-    <Bienvenida></Bienvenida>
+     <Bienvenida></Bienvenida>
 }
+
 
 @code {
     private Usuario? usuarioActual;
