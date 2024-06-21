@@ -1,11 +1,8 @@
 @using SGE.Aplicacion
 @rendermode InteractiveServer
-
 @inject CasoDeUsoListarUsuarios CULU;
 @inject CasoDeUsoUsuarioBaja CUUB;
 @inject CasoDeUsoUsuarioModificacion CUUM;
-@inject CasoDeUsoPermisoAlta CUPA;
-@inject CasoDeUsoPermisoBaja CUPB;
 @inject IServicioSesion ServicioSesion;
 @inject NavigationManager Navegador;
 
@@ -41,9 +38,7 @@
                                 @string.Join(" ", usuario.ListaPermisos.Split(",").Select((permiso, index) => index % 3 == 0 && index != 0 ?
                                                   $"{permiso}\n" : permiso))
                             }</td>
-                                    <td><button type="button" class="btn btn-primary" @onclick="()=> ModificarUsuario(usuario)">Modificar Datos</button></td>
-                                    <td><button type="button" class="btn btn-primary" @onclick="()=> AgregarPermiso(usuario)">Agregar Permisos</button></td>
-                                    <td><button type="button" class="btn btn-primary" @onclick="()=> QuitarPermiso(usuario)">Quitar Permisos</button></td>
+                                    <td><button type="button" class="btn btn-primary" @onclick="()=> ModificarUsuario(usuario.Id)"   disabled="@((usuario.Id == 1) ? "disabled" : null)">Modificar Datos</button></td>
                                     <td><button type="button" class="btn btn-danger" @onclick="()=> EliminarUsuario(usuario.Id)"
                                             disabled="@((usuario.Id == 1) ? "disabled" : null)">Eliminar</button></td>
                                 </tr>
@@ -52,11 +47,6 @@
             </tbody>
         </table>
 
-        //<Modal @bind-Visible="@modalAgregarPermisos" Titulo="Agregar Permisos"> </Modal>
-        
-        //<Modal @bind-Visible="@modalQuitarPermisos" Titulo="Quitar Permisos"></Modal>
-        
-        //<Modal @bind-Visible="@modalModificar" Titulo="Modificar Datos"> </Modal>
 }
 else
 {
@@ -73,17 +63,9 @@ else
     private List<Usuario>? ListaUsuarios;
     Aviso aviso;
 
-    void ModificarUsuario(Usuario usuarioModificado)
+    void ModificarUsuario(int id)
     {
-        try
-        {
-            CUUM.Ejecutar(usuarioModificado);
-        }
-        catch (Exception e)
-        {
-            aviso?.Mostrar(e.Message);
-        }
-
+        Navegador.NavigateTo($"usuario/{id}");
     }
 
     void EliminarUsuario(int idBorrar)
@@ -100,16 +82,6 @@ else
         }
     }
 
-
-    void QuitarPermiso(Usuario usuario)
-    {
-     
-    }
-
-    void AgregarPermiso(Usuario usuario)
-    {
-
-    }
 
     // NO ES NECESARIO VALIDAR PORQUE SE HACE EN LA HOME
     protected override void OnInitialized()

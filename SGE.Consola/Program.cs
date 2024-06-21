@@ -71,8 +71,7 @@ class Program
 
         CasoDeUsoUsuarioAlta CUUAlta = new CasoDeUsoUsuarioAlta(repoUsuario,validadorUsuario, hashContraseña);
         CasoDeUsoUsuarioBaja CUUBaja = new CasoDeUsoUsuarioBaja(repoUsuario);
-        ServicioIniciarSesion servicioAutenticacion = new ServicioIniciarSesion(hashContraseña,repoUsuario);
-        CasoDeUsoPermisosAlta CUPA= new CasoDeUsoPermisosAlta(repoUsuario);
+
         CasoDeUsoPermisoBaja  CUPB = new CasoDeUsoPermisoBaja (repoUsuario);
 
 
@@ -84,8 +83,9 @@ class Program
         
         // Usuario usuario2 = new Usuario("Gianluca","Cardone","micodasdasdasrreo@gmail.com","micontra1234");
         // CUUAlta.Ejecutar(usuario2);
-
-    
+        
+        
+        //CUTAlta.Ejecutar();
         
 
 

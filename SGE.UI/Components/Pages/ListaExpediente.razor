@@ -23,7 +23,7 @@
                 <th>Fecha Creación</th>
                 <th>Fecha Última Modificación</th>
                 <th>Estado</th>
-                <th>Lista de Trámites</th>
+                <th>Trámites asociados</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -37,13 +37,7 @@
                     <td>@expediente.FechaModificacion.ToString("dd/MM/yyyy")</td>
                     <td>@expediente.Estado</td>
                     <td>
-                        @if (expediente.Tramites != null)
-                        {
-                            @foreach (var tramite in expediente.Tramites)
-                            {
-                                <span>@tramite.Id</span>
-                            }
-                        }
+                        <button class="btn-ListarTramites">Listar</button>
                     </td>
                     <td class="acciones-centradas">
                         <button class="btn btn-Editar" @onclick="()=>ModificarExpediente(expediente.Id)"> Editar</button>
@@ -98,5 +92,4 @@
     {
         Navegador.NavigateTo($"expediente/{id}");
     }
-
 }

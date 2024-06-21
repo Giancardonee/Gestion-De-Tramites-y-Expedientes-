@@ -7,7 +7,7 @@ public interface IUsuarioRepositorio
     public void ModificarUsuario (Usuario usuario);
     public List<Usuario> ListarUsuarios ();
     public bool AutenticarUsuario(Usuario usuario,String hashContraseña);
-    public void AgregarPermiso(int id, String permisoAOtorgar);
-    public void QuitarPermiso(int id, String permisoAQuitar);
     public Usuario? GetUsuario(String correo); 
+    Usuario? ConsultaPorId(int id);
+    void ModificarPermisos(int id, String permisos);
 }

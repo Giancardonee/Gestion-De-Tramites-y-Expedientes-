@@ -19,7 +19,7 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="expediente" class="form-label">Expediente Asociado</label>
-                <input id="expediente" placeholder="Expediente Asociado" @bind="t.Id" class="form-control" />
+                <input id="expediente" placeholder="Expediente Asociado" @bind="t.ExpedienteId" class="form-control" />
             </div>
             <div class="col-md-6">
                 <label for="tipoTramite" class="form-label">Tipo De Tramite (0..5)</label>
@@ -71,7 +71,7 @@
             try 
             {
                 if(ServicioSesion.GetUsuario() != null) {
-
+                Console.WriteLine("ID:"+t.Id+"expediente asociado: "+t.ExpedienteId+" "+t.ContenidoTramite);
                 CUTA.Ejecutar(t, ServicioSesion.GetUsuario());
                 }
                 exitoso = true;
@@ -102,7 +102,7 @@
         {
             mensaje = "";
             t = new Tramite();
-            navegador.NavigateTo("listarTramites");
+            navegador.NavigateTo("listaTramites");
         }
     }
 

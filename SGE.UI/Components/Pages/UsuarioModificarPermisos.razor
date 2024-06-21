@@ -1,0 +1,60 @@
+@page "/usuario/{Id:int}"
+@rendermode InteractiveServer
+@inject CasoDeUsoModificarPermisos CUUMP;
+@inject NavigationManager Navegador
+@inject IServicioSesion ServicioSesion
+@inject CasoDeUsoUsuarioConsultaPorId CUCI;
+
+<form>
+    @if (permisosList != null)
+    {
+
+        @foreach (var permiso in permisosList)
+        {
+            <div class="form-check">
+                <label>
+                    <input type="checkbox"class="form-check-input" @bind="permiso.IsSelected">
+                    @permiso.Name
+                </label>
+            </div>
+        }
+    }
+    <button type="button" @onclick="ModificarUsuario">Modificar Usuario</button>
+</form>
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    Usuario? usuarioAModificar = new Usuario();
+    private List<PermisoItem>? permisosList;
+    protected override void OnInitialized()
+    {
+        usuarioAModificar = CUCI.Ejecutar(Id);
+        String[] permisosActuales = usuarioAModificar.ListaPermisos.Split(",");
+        permisosList = Enum.GetNames(typeof(Permiso)).Take(6).Select((p, index) => new PermisoItem(p, permisosActuales.Contains(p))).ToList();
+    }
+
+    public class PermisoItem
+    {
+        public string Name { get; set; }
+        public bool IsSelected { get; set; }
+
+        public PermisoItem(string name, bool isSelected) {
+            this.Name = name;
+            this.IsSelected = isSelected;
+        }
+    }
+
+    private void ModificarUsuario()
+    {
+        var selectedItems = permisosList
+        .Where(p => p.IsSelected)
+        .Select(p => p.Name)
+        .ToArray();
+        usuarioAModificar.ListaPermisos = string.Join(",", selectedItems);
+        CUUMP.Ejecutar(Id, usuarioAModificar.ListaPermisos);
+        Navegador.NavigateTo("/");
+    }
+
+
+}

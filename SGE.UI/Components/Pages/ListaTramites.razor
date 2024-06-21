@@ -6,11 +6,11 @@
 @inject CasoDeUsoTramiteConsultaTodos CUTCT
 
 
-<div class="expediente-menu">
+<div class="tramite-menu">
     <button class="btn btn-green" @onclick="()=>AgregarTramite()">Agregar Trámite</button>
 </div>
 
-<div class="expediente-list hidden">
+<div class="tramite-list hidden">
     <h2>Lista de Trámites</h2>
     <table>
         <thead>
@@ -22,6 +22,7 @@
                 <th>Fecha creacion</th>
                 <th>Fecha ult modificacion</th>
                 <th>Usuario ult modificacion</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -35,12 +36,12 @@
                     <td>@tramite.FechaCreacion</td>
                     <td>@tramite.FechaUltModificacion</td>
                     <td>@tramite.UsuarioUltModificacion</td>
-                    <td>
-                        <button class="btn btn-primary" @onclick="()=>ModificarTramite(tramite.Id)">Editar</button>
-                        <button class="btn btn-danger" @onclick="()=>EliminarTramite(tramite)">Eliminar</button>
+                    <td class="acciones-centradas">
+                        <button class="btn btn-Editar" @onclick="()=>ModificarTramite(tramite.Id)">Editar</button>
+                        <button class="btn btn-Eliminar" @onclick="()=>EliminarTramite(tramite)">Eliminar</button>
                     </td>
                 </tr>
-                }
+            }
         </tbody>
         @if (!string.IsNullOrEmpty(ErrorMessage))
         {

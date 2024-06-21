@@ -58,8 +58,8 @@ builder.Services.AddTransient<CasoDeUsoUsuarioAlta>();
 builder.Services.AddTransient<CasoDeUsoUsuarioBaja>();
 builder.Services.AddTransient<CasoDeUsoUsuarioModificacion>();
 builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
-builder.Services.AddTransient<CasoDeUsoPermisoAlta>();
-builder.Services.AddTransient<CasoDeUsoPermisoBaja>();
+builder.Services.AddTransient<CasoDeUsoModificarPermisos>();
+builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorId>();
 // Registro de dependencias necesarias casos de uso de usuarios.
 builder.Services.AddScoped<IUsuarioRepositorio,RepositorioUsuario>();
 builder.Services.AddScoped<IValidadorUsuario, UsuarioValidador>();

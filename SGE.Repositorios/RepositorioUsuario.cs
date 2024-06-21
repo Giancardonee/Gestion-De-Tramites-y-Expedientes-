@@ -47,6 +47,11 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
     {
           return context.Usuarios?.Where(u => u.Correo == correo).SingleOrDefault();
     }
+
+    public Usuario? ConsultaPorId(int id) 
+    {
+        return context.Usuarios?.Where(u => u.Id == id).SingleOrDefault();
+    }
     public void ModificarUsuario(Usuario usuario)
     {
         var usuarioModificar = context.Usuarios.Where(u => u.Id == usuario.Id).SingleOrDefault();
@@ -72,42 +77,53 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
         return usuarios;
     }
 
-    // QUITAR PERMSISOS ADJUDICADOS DESDE LA UI !!
-    public void AgregarPermiso(int Id, String permisoAOtorgar)
+    public void ModificarPermisos(int id, String permisos) 
     {
-        var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
-        if (usuarioModificar != null)
+        var usuarioModificar = context.Usuarios.Where(u => u.Id == id).SingleOrDefault();
+        if (usuarioModificar != null) 
         {
-            if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
-            {
-                usuarioModificar.ListaPermisos += $",{permisoAOtorgar}";
-            }
-            else
-            {
-                usuarioModificar.ListaPermisos = permisoAOtorgar;
-            }
+            usuarioModificar.ListaPermisos = permisos; 
             context.SaveChanges();
         }
         else
-            throw new RepositorioException("AgregarPermisos: El usuario no existe.");
+            throw new RepositorioException("ModificarPermisos: El usuario no existe.");
     }
 
+    // QUITAR PERMSISOS ADJUDICADOS DESDE LA UI !!
+    // public void AgregarPermiso(int Id, String permisoAOtorgar)
+    // {
+    //     var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
+    //     if (usuarioModificar != null)
+    //     {
+    //         if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
+    //         {
+    //             usuarioModificar.ListaPermisos += $",{permisoAOtorgar}";
+    //         }
+    //         else
+    //         {
+    //             usuarioModificar.ListaPermisos = permisoAOtorgar;
+    //         }
+    //         context.SaveChanges();
+    //     }
+    //     else
+    //         throw new RepositorioException("AgregarPermisos: El usuario no existe.");
+    // }
 
-    public void QuitarPermiso(int Id, String permisoAQuitar)
-    {
-        var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
-        if (usuarioModificar != null)
-        {
-            if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
-            {
-                var permisos = usuarioModificar.ListaPermisos.Split(',').Where(p => p != permisoAQuitar);
-                usuarioModificar.ListaPermisos = String.Join(',', permisos);
-                context.SaveChanges();
-            }
-        }
-        else
-            throw new RepositorioException("AgregarPermisos: El usuario no existe.");
-    }
+    // public void QuitarPermiso(int Id, String permisoAQuitar)
+    // {
+    //     var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
+    //     if (usuarioModificar != null)
+    //     {
+    //         if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
+    //         {
+    //             var permisos = usuarioModificar.ListaPermisos.Split(',').Where(p => p != permisoAQuitar);
+    //             usuarioModificar.ListaPermisos = String.Join(',', permisos);
+    //             context.SaveChanges();
+    //         }
+    //     }
+    //     else
+    //         throw new RepositorioException("AgregarPermisos: El usuario no existe.");
+    // }
 
 
 

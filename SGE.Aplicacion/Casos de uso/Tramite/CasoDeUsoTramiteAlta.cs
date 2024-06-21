@@ -24,10 +24,12 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoTramite, IServicioAuto
         catch (AutorizacionException e)
         {
             Console.WriteLine(e.Message);
+            throw;
         }
         catch (ValidacionException exc)
         {
             Console.WriteLine(exc.Message);
+            throw;
         }
     }
 
