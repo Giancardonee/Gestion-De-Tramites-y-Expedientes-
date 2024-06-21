@@ -17,6 +17,24 @@ builder.Services.AddDbContext<SGEcontext>();
 //==================================================
 
 
+// Casos de uso de Expediente
+builder.Services.AddTransient<CasoDeUsoExpedienteAlta>();
+builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
+builder.Services.AddTransient<CasoDeUsoExpedienteModificacion>();
+builder.Services.AddTransient<CasoDeUsoExpedienteConsultaPorId>();
+builder.Services.AddTransient<CasoDeUsoExpedienteConsultaTodos>();
+builder.Services.AddTransient<CasoDeUsoExpedienteConTramitesAsociados>();
+
+
+// Registro de dependencias de caso de uso de expedientes
+builder.Services.AddScoped<IExpedienteRepositorio,RepositorioExpediente>();
+builder.Services.AddScoped<IValidadorExpediente, ExpedienteValidador>();
+builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
+
+// Registro de dependencias de caso de uso de tramites 
+builder.Services.AddScoped<ITramiteRepositorio,RepositorioTramite>();
+
+
 // Caso de usos de usuario: 
 builder.Services.AddTransient<CasoDeUsoUsuarioAlta>();
 builder.Services.AddTransient<CasoDeUsoUsuarioBaja>();
@@ -30,7 +48,6 @@ builder.Services.AddScoped<IValidadorUsuario, UsuarioValidador>();
 builder.Services.AddScoped<IServicioHashContraseña, ServicioHashContraseña>();
 
 //==================================================
-
 
 // Caso de uso autenticar usuario
 builder.Services.AddTransient<CasoDeUsoIniciarSesion>();

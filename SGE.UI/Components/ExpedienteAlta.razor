@@ -1,0 +1,36 @@
+@rendermode InteractiveServer
+@using SGE.Aplicacion;
+@inject CasoDeUsoExpedienteAlta CUEA; 
+@inject IServicioSesion ServicioSesion;
+
+<h1>Añadir nuevo expediente</h1>
+<form>
+    <input placeholder="Caratula" @bind="nuevoExpendiente.Caratula" class="form-control">
+    <button class="btn-d-alta" @onclick="AgregarExpediente">Dar de alta</button>
+</form>
+
+@code {
+    private Expediente nuevoExpendiente = new Expediente();
+    
+     void AgregarExpediente() {
+       try
+       {
+            CUEA.Ejecutar(nuevoExpediente,ServicioSesion.GetUsuario());
+       }
+        catch (AutorizacionException error)
+        {
+            Console.WriteLine(error.Message);
+            throw;
+        }
+        catch (ValidacionException exc)
+        {
+            Console.WriteLine(exc.Message);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+          throw; 
+        }
+    }
+}

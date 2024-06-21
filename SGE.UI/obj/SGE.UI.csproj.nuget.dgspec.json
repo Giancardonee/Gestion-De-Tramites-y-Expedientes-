@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+    "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
+        "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
         "projectName": "SGE.Autenticacion",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
+        "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\obj\\",
+        "outputPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -149,8 +149,8 @@
               "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
                 "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
               },
-              "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
+              "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+                "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
               }
             }
           }
@@ -224,8 +224,8 @@
               "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
                 "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
               },
-              "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
+              "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj": {
+                "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Autenticacion\\SGE.Autenticacion.csproj"
               },
               "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj": {
                 "projectPath": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.Repositorios\\SGE.Repositorios.csproj"

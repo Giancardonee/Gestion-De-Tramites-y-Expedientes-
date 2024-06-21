@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoPermisosAlta (IUsuarioRepositorio repositorio)
+public class CasoDeUsoPermisoAlta (IUsuarioRepositorio repositorio)
 {
     public void Ejecutar (int id,String permisosAOtorgar)
     {

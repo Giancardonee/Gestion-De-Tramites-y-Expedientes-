@@ -1,0 +1,31 @@
+@rendermode InteractiveServer
+
+<div class="modal-backdrop fade @(Visible ? "show" : "")"></div>
+<div class="modal fade @(Visible ? "show" : "")" tabindex="-1" style="display: @(Visible ? "block" : "none");"
+    @onclick="CerrarModal">
+    <div class="modal-dialog" style="max-width: 600px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Titulo</h5>
+                <button type="button" class="close" aria-label="Close" @onclick="CerrarModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Contenido
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public bool Visible { get; set; }
+    [Parameter] public string Titulo? { get; set; }
+    [Parameter] public RenderFragment Contenido? { get; set; }
+
+private void CerrarModal()
+{
+    Visible = false;
+}
+
+}

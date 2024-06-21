@@ -1,65 +1,98 @@
-@page "/menuAdmin"
 @using SGE.Aplicacion
 @rendermode InteractiveServer
 
 @inject CasoDeUsoListarUsuarios CULU;
 @inject CasoDeUsoUsuarioBaja CUUB;
 @inject CasoDeUsoUsuarioModificacion CUUM;
-@inject CasoDeUsoPermisosAlta CUPA;
+@inject CasoDeUsoPermisoAlta CUPA;
 @inject CasoDeUsoPermisoBaja CUPB;
 @inject IServicioSesion ServicioSesion;
-@inject NavigationManager Navegador
+@inject NavigationManager Navegador;
 
 
 @if (ServicioSesion.esAdmin)
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Correo</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if(ListaUsuarios != null) {
-
-            @foreach (var usuario in ListaUsuarios)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@usuario.Id</td>
-                    <td>@usuario.Nombre</td>
-                    <td>@usuario.Apellido</td>
-                    <td>@usuario.Correo</td>
-                    <td><button type="button" class="btn btn-primary">Modificar Datos</button></td>
-                    <td><button type="button" class="btn btn-primary">Agregar Permisos</button></td>
-                    <td><button type="button" class="btn btn-primary">Quitar Permisos</button></td>
-                    <td><button type="button" class="btn btn-danger" @onclick="()=> EliminarUsuario(usuario.Id)">Eliminar</button></td>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Permisos</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
+            </thead>
+            <tbody>
+            @if (ListaUsuarios != null)
+            {
+
+                @foreach (var usuario in ListaUsuarios)
+                {
+                                <tr>
+                                    <td>@usuario.Id</td>
+                                    <td>@usuario.Nombre</td>
+                                    <td>@usuario.Apellido</td>
+                                    <td>@usuario.Correo</td>
+                                    <td> @if (usuario.ListaPermisos != null)
+                            {
+                                @string.Join(" ", usuario.ListaPermisos.Split(",").Select((permiso, index) => index % 3 == 0 && index != 0 ?
+                                                  $"{permiso}\n" : permiso))
+                            }</td>
+                                    <td><button type="button" class="btn btn-primary" @onclick="()=> ModificarUsuario(usuario)">Modificar Datos</button></td>
+                                    <td><button type="button" class="btn btn-primary" @onclick="()=> AgregarPermiso(usuario)">Agregar Permisos</button></td>
+                                    <td><button type="button" class="btn btn-primary" @onclick="()=> QuitarPermiso(usuario)">Quitar Permisos</button></td>
+                                    <td><button type="button" class="btn btn-danger" @onclick="()=> EliminarUsuario(usuario.Id)"
+                                            disabled="@((usuario.Id == 1) ? "disabled" : null)">Eliminar</button></td>
+                                </tr>
+                }
             }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+
+        //<Modal @bind-Visible="@modalAgregarPermisos" Titulo="Agregar Permisos"> </Modal>
+        
+        <Modal @bind-Visible="@modalQuitarPermisos" Titulo="Quitar Permisos">
+        @if (QuitarPermisoContent != null){
+            <div>
+                @QuitarPermisoContent
+            </div>
+        }
+        </Modal>
+        
+        //<Modal @bind-Visible="@modalModificar" Titulo="Modificar Datos"> </Modal>
 }
 else
 {
-    <Aviso @ref="aviso" urlRedirect="/"></Aviso>
+        <Aviso @ref="aviso" urlRedirect="/"></Aviso>
 }
 
 
 
 @code {
+    private bool modalAgregarPermisos = true;
+    private bool modalQuitarPermisos = false;
+    private bool modalModificar = false;
+
+    private RenderFragment QuitarPermisoContent;
+    private string AgregarPermisoContent = "";
+    private string ModificarUsuarioContent = "";
 
     private List<Usuario>? ListaUsuarios;
-    
     Aviso aviso;
-    void ModificarUsuario()
+
+    void ModificarUsuario(Usuario usuarioModificado)
     {
+        try
+        {
+            CUUM.Ejecutar(usuarioModificado);
+        }
+        catch (Exception e)
+        {
+            aviso?.Mostrar(e.Message);
+        }
 
     }
 
@@ -69,28 +102,51 @@ else
         {
             CUUB.Ejecutar(idBorrar);
             aviso?.Mostrar("Se elimino el usuario correctamente.");
+            ListaUsuarios = CULU.Ejecutar();
         }
         catch (Exception e)
         {
-            Console.Writeline(e.Message);
-            aviso?.Mostrar(e);
+            aviso?.Mostrar(e.Message);
         }
     }
-    void QuitarPermiso()
+
+
+    void QuitarPermiso(Usuario usuario)
+    {
+        var permisosFiltrados = new List<Permiso>();
+        if(!String.IsNullOrEmpty(usuario.ListaPermisos)){
+         permisosFiltrados = Permiso.GetValues(typeof(Permiso)).Cast<Permiso>()
+                .Where(p => !usuario.ListaPermisos.Split(",").Contains(p.ToString()))
+                .ToList();
+        }
+       QuitarPermisoContent = builder =>
+        {
+            builder.OpenElement(0, "div");
+            foreach (var permiso in permisosFiltrados)
+            {
+                builder.OpenElement(1, "button");
+                builder.AddAttribute(2, "type", "button");
+                builder.AddAttribute(3, "class", "btn btn-primary");
+                builder.AddAttribute(4, "onclick", EventCallback.Factory.Create(this, () => CUPB.Ejecutar(usuario.Id, permiso.ToString())));
+                builder.AddContent(5, permiso.ToString());
+                builder.CloseElement();
+            }
+            builder.CloseElement();
+        
+    }
+
+    void AgregarPermiso(Usuario usuario)
     {
 
     }
 
-    void AgregarPermiso()
-    {
-
-    }
-    
+    // NO ES NECESARIO VALIDAR PORQUE SE HACE EN LA HOME
     protected override void OnInitialized()
     {
         if (!ServicioSesion.esAdmin)
         {
             aviso.Mostrar("No tenés permisos de admin!");
+
         }
         else
         {

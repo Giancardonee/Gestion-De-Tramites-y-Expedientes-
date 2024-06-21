@@ -21,14 +21,17 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repoExpediente, ISer
         catch (AutorizacionException error)
         {
             Console.WriteLine(error.Message);
+            throw;
         }
         catch (ValidacionException exc)
         {
             Console.WriteLine(exc.Message);
+            throw;
         }
         catch (Exception ex)
         {
-          Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
+          throw; 
         }
     }
 
