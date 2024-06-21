@@ -53,7 +53,7 @@
         .ToArray();
         usuarioAModificar.ListaPermisos = string.Join(",", selectedItems);
         CUUMP.Ejecutar(Id, usuarioAModificar.ListaPermisos);
-        Navegador.NavigateTo("/");
+        Navegador.NavigateTo("listaUsuarios");
     }
 
 

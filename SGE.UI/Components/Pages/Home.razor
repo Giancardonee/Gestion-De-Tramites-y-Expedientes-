@@ -5,45 +5,19 @@
 @inject CasoDeUsoUsuarioAlta CUUA;
 @inject NavigationManager Navegador; 
 
-@if (usuarioActual != null && usuarioActual.Id == 1)
+@if (usuarioActual != null)
 {
-    <AdminMenu></AdminMenu>
-}
-else if (usuarioActual != null)
+   <Saludo />  
+}    
+else 
 {
-   
+    <Login></Login>
 }
-else
-{   
-     <Login></Login>
-}
-
-
+    
 @code {
     private Usuario? usuarioActual;
     protected override void OnInitialized()
     {
         usuarioActual = ServicioSesion.GetUsuario();
-        if (usuarioActual != null)
-        {
-            Console.WriteLine($"Usuario logueado: {usuarioActual.Nombre}");
-        }
-
-        //Usuario usuario1 = new Usuario("Nombre", "Apellido", "email@email.com", "contra10");
-        //CUUA.Ejecutar(usuario1);
-        //CUUA.Ejecutar(new Usuario("Nombre2", "Apellido2", "email2@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre3", "Apellido3", "email3@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre4", "Apellido4", "email4@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email5@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email6@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email7@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email8@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email9@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email10@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email11@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email12@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email13@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email14@email.com", "contra10"));
-        //CUUA.Ejecutar(new Usuario("Nombre5", "Apellido5", "email15@email.com", "contra10"));
     }
 }

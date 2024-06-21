@@ -1,13 +1,18 @@
-<!--  IServicioSesion ServicioSesion; 
-NavigationManager Navegador
+@rendermode InteractiveServer
+@inject IServicioSesion ServicioSesion
+@inject NavigationManager Navegador
 
-<h2>¡Bienvenido/a al Sistema de Gestion, @ServicioSesion.GetUsuario().Nombre!</h2>
-<button @onclick="Cerrar()">Cerrar sesión</button>
 
-@code 
+@if (ServicioSesion.GetUsuario() != null)
+{   <div class="contenedor-saludo">
+        <h2>¡Bienvenido/a al Sistema de Gestion, @ServicioSesion.GetUsuario().Nombre!</h2>
+    </div>
+}
+
+@code
 {
-    void Cerrar() {
-        ServicioSesion.LogOut(); 
-        Navegador.NavigateTo("/");
+    void Cerrar()
+    {
+        ServicioSesion.LogOut();
     }
-} -->
+}

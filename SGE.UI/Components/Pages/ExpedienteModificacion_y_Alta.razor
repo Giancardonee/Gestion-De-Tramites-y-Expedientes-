@@ -24,7 +24,7 @@ else
             <input id="expediente" placeholder="Caratula" @bind="exp.Caratula" class="form-control" />
         </div>
         <div class="col-md-6">
-            <label for="tipoTramite" class="form-label">Estado del expediente (0..4)</label>
+            <label for="tipoTramite" class="form-label">Estado del expediente</label>
             <input id="tipoTramite" placeholder="Estado del expediente" @bind="exp.Estado" class="form-control" />
         </div>
     </div>
@@ -58,9 +58,10 @@ else
         }
     }
 
+
     void Aceptar()
     {
-        bool exitoso = false;
+        bool error = false;
         if (_esNuevo)
         {
             try
@@ -68,13 +69,14 @@ else
                 if (ServicioSesion.GetUsuario() != null)
                 {
                     CUEA.Ejecutar(exp, ServicioSesion.GetUsuario());
-                    exitoso = true;
+                    error = false;
                 }
             }
             catch (Exception ex)
             {
                 mensaje = ex.Message;
                 Console.WriteLine(ex);
+                error = true;
             }
         }
         else
@@ -84,21 +86,23 @@ else
                 if (ServicioSesion.GetUsuario() != null)
                 {
                     CUEM.Ejecutar(exp, ServicioSesion.GetUsuario());
-                    exitoso = true;
+                    error = false;
                 }
             }
             catch (Exception ex)
             {
                 mensaje = ex.Message;
                 Console.WriteLine(ex);
+                error = true;
             }
         }
-        if (exitoso)
+        if (!error)
         {
             mensaje = "";
             exp = new Expediente();
             Navegador.NavigateTo("listaExpediente");
         }
     }
+
 
 }

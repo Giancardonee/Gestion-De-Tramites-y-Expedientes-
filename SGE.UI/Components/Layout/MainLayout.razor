@@ -1,8 +1,22 @@
 ﻿@inherits LayoutComponentBase
+@inject IServicioSesion ServicioSesion
 
 <div class="page">
     <div class="sidebar">
-        <NavMenu />
+
+        @if (ServicioSesion.GetUsuario() != null && ServicioSesion.esAdmin)
+        {
+            <NavMenuAdmin />
+        }
+        else if (ServicioSesion.GetUsuario() != null)
+        {
+            <NavMenuUsuario />
+        }
+        else
+        {
+            <NavMenu />
+        }
+
     </div>
 
     <main>
@@ -21,3 +35,4 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+

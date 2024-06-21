@@ -7,14 +7,15 @@
 @inject NavigationManager Navegador
 @inject CasoDeUsoExpedienteBaja CUEB
 @inject CasoDeUsoExpedienteConsultaTodos CUECT
+@inject CasoDeUsoExpedienteConTramitesAsociados CUETA
+@inject IServicioAutorizacion ServicioAutorizacion
 
-
-<div class="expediente-menu">
-    <button class="btn btn-green" @onclick="()=>AgregarExpediente()">Agregar Expediente</button>
-</div>
 
 <div class="expediente-list hidden">
     <h2>Lista de Expedientes</h2>
+    <div class="expediente-menu">
+        <button class="btn btn-green" @onclick="()=>AgregarExpediente()">Agregar Expediente</button>
+    </div>
     <table>
         <thead>
             <tr>
@@ -37,7 +38,8 @@
                     <td>@expediente.FechaModificacion.ToString("dd/MM/yyyy")</td>
                     <td>@expediente.Estado</td>
                     <td>
-                        <button class="btn-ListarTramites">Listar</button>
+                        <button class="btn-ListarTramites" @onclick="()=>BuscarTramitesAsociados(expediente.Id)">Ver
+                            tramites asociados</button>
                     </td>
                     <td class="acciones-centradas">
                         <button class="btn btn-Editar" @onclick="()=>ModificarExpediente(expediente.Id)"> Editar</button>
@@ -53,6 +55,43 @@
             </div>
         }
     </table>
+
+    @if (listaTramitesAsociados != null)
+    {
+        <h2 class="mt-5"> @Mensaje </h2>
+        <button class="btn btn-primary" @onclick="CerrarTramitesAsociados">Cerrar Tramites asociados
+        </button>
+        <table class="mt-1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>E. Asociado</th>
+                    <th>Etiqueta Tramite</th>
+                    <th>Contenido</th>
+                    <th>Fecha creacion</th>
+                    <th>Fecha ult modificacion</th>
+                    <th>Usuario ult modificacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tramite in listaTramitesAsociados)
+                {
+
+                    <tr>
+                        <td>@tramite.Id</td>
+                        <td>@tramite.ExpedienteId</td>
+                        <td>@tramite.TipoTramite</td>
+                        <td>@tramite.ContenidoTramite</td>
+                        <td>@tramite.FechaCreacion</td>
+                        <td>@tramite.FechaUltModificacion</td>
+                        <td>@tramite.UsuarioUltModificacion</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+
 </div>
 
 
@@ -60,6 +99,9 @@
 @code {
     private string ErrorMessage = "";
     List<Expediente> Expedientes = new List<Expediente>();
+    List<Tramite>? listaTramitesAsociados;
+    public String Mensaje;
+    int idExpedienteActual;
 
     protected override void OnInitialized()
     {
@@ -71,12 +113,20 @@
     {
         try
         {
-            if (ServicioSesion.GetUsuario() != null)
+            if (ServicioAutorizacion.TienePermiso(ServicioSesion.GetUsuario(), Permiso.ExpedienteAlta))
             {
-                CUEB.Ejecutar(e.Id, ServicioSesion.GetUsuario());
-                ErrorMessage = "";
-                Expedientes = CUECT.Ejecutar();
+                if (ServicioSesion.GetUsuario() != null)
+                {
+                    CUEB.Ejecutar(e.Id, ServicioSesion.GetUsuario());
+                    ErrorMessage = "";
+                    Expedientes = CUECT.Ejecutar();
+                }
             }
+            else
+            {
+                ErrorMessage = "No tenes permiso para eliminar expedientes.";
+            }
+
         }
         catch (Exception exc)
         {
@@ -90,6 +140,25 @@
     }
     private void ModificarExpediente(int id)
     {
-        Navegador.NavigateTo($"expediente/{id}");
+        if (ServicioAutorizacion.TienePermiso(ServicioSesion.GetUsuario(), Permiso.ExpedienteModificacion))
+        {
+            Navegador.NavigateTo($"expediente/{id}");
+        }
+        else
+        {
+            ErrorMessage = "No tenes permiso para modificar expedientes.";
+        }
+    }
+
+    private void BuscarTramitesAsociados(int id)
+    {
+        listaTramitesAsociados = CUETA.Ejecutar(id).Tramites;
+        idExpedienteActual = id;
+        Mensaje = "Tramites asociados al expediente: " + idExpedienteActual;
+    }
+    private void CerrarTramitesAsociados()
+    {
+        Mensaje = "";
+        listaTramitesAsociados = null;
     }
 }

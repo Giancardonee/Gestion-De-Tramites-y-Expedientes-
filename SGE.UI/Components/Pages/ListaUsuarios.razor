@@ -1,4 +1,6 @@
+@page "/listaUsuarios"
 @using SGE.Aplicacion
+@using SGE.UI.Components
 @rendermode InteractiveServer
 @inject CasoDeUsoListarUsuarios CULU;
 @inject CasoDeUsoUsuarioBaja CUUB;
@@ -6,9 +8,6 @@
 @inject IServicioSesion ServicioSesion;
 @inject NavigationManager Navegador;
 
-
-@if (ServicioSesion.esAdmin)
-{
         <table class="table">
             <thead>
                 <tr>
@@ -23,10 +22,10 @@
                 </tr>
             </thead>
             <tbody>
-            @if (ListaUsuarios != null)
+            @if (lista != null)
             {
 
-                @foreach (var usuario in ListaUsuarios)
+                @foreach (var usuario in lista)
                 {
                                 <tr>
                                     <td>@usuario.Id</td>
@@ -47,22 +46,16 @@
             </tbody>
         </table>
 
-}
-else
-{
-        <Aviso @ref="aviso" urlRedirect="/"></Aviso>
-}
-
-
 @code {
-    public bool modalAgregarPermisos = true;
-    public bool modalQuitarPermisos = false;
-    public bool modalModificar = false;
-
-
-    private List<Usuario>? ListaUsuarios;
+    private List<Usuario>? lista;
     Aviso aviso;
 
+    
+    protected override void OnInitialized()
+    {
+        lista = CULU.Ejecutar(); 
+    }
+    
     void ModificarUsuario(int id)
     {
         Navegador.NavigateTo($"usuario/{id}");
@@ -74,26 +67,11 @@ else
         {
             CUUB.Ejecutar(idBorrar);
             aviso?.Mostrar("Se elimino el usuario correctamente.");
-            ListaUsuarios = CULU.Ejecutar();
+            lista = CULU.Ejecutar();
         }
         catch (Exception e)
         {
             aviso?.Mostrar(e.Message);
-        }
-    }
-
-
-    // NO ES NECESARIO VALIDAR PORQUE SE HACE EN LA HOME
-    protected override void OnInitialized()
-    {
-        if (!ServicioSesion.esAdmin)
-        {
-            aviso.Mostrar("No tenés permisos de admin!");
-
-        }
-        else
-        {
-            ListaUsuarios = CULU.Ejecutar();
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lO1inambjLjm+OEts9tV7tEZWui1fJH9/591/de8rwA=",
+  "Hash": "Iyf4jBXTxtpQNz4IfdlPZB3xhJeBVkT1z1MlUPkhdNs=",
   "Source": "SGE.UI",
   "BasePath": "_content/SGE.UI",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "SGE.UI\\wwwroot",
       "Source": "SGE.UI",
-      "ContentRoot": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "Pattern": "**"
     }
@@ -58,7 +58,7 @@
       "Identity": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\app.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -77,7 +77,7 @@
       "Identity": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -96,7 +96,7 @@
       "Identity": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -115,7 +115,7 @@
       "Identity": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\favicon.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\sistema prueba\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

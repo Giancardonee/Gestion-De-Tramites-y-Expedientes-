@@ -1,0 +1,80 @@
+﻿@page "/usuario"
+@rendermode InteractiveServer
+@inject IServicioSesion ServicioSesion
+@inject CasoDeUsoUsuarioModificacion CUUM
+@inject IServicioHashContraseña hash
+@inject IValidadorUsuario usuarioValidador
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input id="nombre" placeholder="Nombre" @bind="usuarioActual.Nombre" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input id="apellido" placeholder="Apellido" @bind="usuarioActual.Apellido" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="correo" class="form-label">Correo Electrónico</label>
+            <input id="correo" type="email" placeholder="Correo Electrónico" @bind="usuarioActual.Correo"
+                class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="nuevaContraseña" class="form-label">Cambio de contraseña (opcional) </label>
+            <input id="nuevaContraseña" type="password" placeholder="nueva contraseña" @bind="nuevaContraseña"
+                class="form-control" />
+
+            <label for="contraseña" class="form-label">Por favor, ingrese su contraseña para aplicar los cambios.
+            </label>
+            <input id="contraseña" type="password" placeholder="Contraseña" @bind="contraseñaSinHash"
+                class="form-control" />
+        </div>
+        <button class="btn btn-primary" @onclick="ActualizarDatos">Actualizar Perfil</button>
+    </div>
+</div>
+
+@code {
+    Usuario? usuarioActual;
+    String nuevaContraseña = "";
+    String contraseñaSinHash = "";
+
+    protected override void OnInitialized()
+    {
+        usuarioActual = ServicioSesion.GetUsuario();
+    }
+    private void ActualizarDatos()
+    {
+        String contraseñaHash;
+        try
+        {
+            if (!nuevaContraseña.Equals(""))
+            {
+                usuarioValidador.ValidarContraseña(nuevaContraseña);
+                contraseñaHash = hash.hashPassword(nuevaContraseña);
+                usuarioActual.Contraseña = contraseñaHash;
+            }
+            else
+            {
+                contraseñaHash = hash.hashPassword(contraseñaSinHash);
+            }
+            if (usuarioActual.Contraseña == contraseñaHash)
+            {
+
+                usuarioValidador.ValidarCorreo(usuarioActual.Correo);
+                usuarioValidador.ValidarDemasCampos(usuarioActual.Nombre, usuarioActual.Apellido);
+                CUUM.Ejecutar(usuarioActual);
+
+                Console.WriteLine("Perfil actualizado exitosamente.");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
+
+}

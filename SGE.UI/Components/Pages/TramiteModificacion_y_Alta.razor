@@ -8,11 +8,11 @@
 
  @if (nuevoTramite)
     {
-        <h3 class="text-primary">Agregando un nuevo Tramite</h3>
+        <h3 class="text-primary">Agregando Tramite</h3>
     }
     else
     {
-        <h3 class="text-primary">Modificando al Tramite "@t.Id"</h3>
+        <h3 class="text-primary">Modificando Tramite "@t.Id"</h3>
     }
 
     <div class="container mt-4">
@@ -22,7 +22,7 @@
                 <input id="expediente" placeholder="Expediente Asociado" @bind="t.ExpedienteId" class="form-control" />
             </div>
             <div class="col-md-6">
-                <label for="tipoTramite" class="form-label">Tipo De Tramite (0..5)</label>
+                <label for="tipoTramite" class="form-label">Etiqueta del tramite</label>
                 <input id="tipoTramite" placeholder="Tipo De Tramite" @bind="t.TipoTramite" class="form-control" />
             </div>
         </div>

@@ -89,42 +89,6 @@ public class RepositorioUsuario(SGEcontext context) : IUsuarioRepositorio
             throw new RepositorioException("ModificarPermisos: El usuario no existe.");
     }
 
-    // QUITAR PERMSISOS ADJUDICADOS DESDE LA UI !!
-    // public void AgregarPermiso(int Id, String permisoAOtorgar)
-    // {
-    //     var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
-    //     if (usuarioModificar != null)
-    //     {
-    //         if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
-    //         {
-    //             usuarioModificar.ListaPermisos += $",{permisoAOtorgar}";
-    //         }
-    //         else
-    //         {
-    //             usuarioModificar.ListaPermisos = permisoAOtorgar;
-    //         }
-    //         context.SaveChanges();
-    //     }
-    //     else
-    //         throw new RepositorioException("AgregarPermisos: El usuario no existe.");
-    // }
-
-    // public void QuitarPermiso(int Id, String permisoAQuitar)
-    // {
-    //     var usuarioModificar = context.Usuarios.Where(u => u.Id == Id).SingleOrDefault();
-    //     if (usuarioModificar != null)
-    //     {
-    //         if (!string.IsNullOrEmpty(usuarioModificar.ListaPermisos))
-    //         {
-    //             var permisos = usuarioModificar.ListaPermisos.Split(',').Where(p => p != permisoAQuitar);
-    //             usuarioModificar.ListaPermisos = String.Join(',', permisos);
-    //             context.SaveChanges();
-    //         }
-    //     }
-    //     else
-    //         throw new RepositorioException("AgregarPermisos: El usuario no existe.");
-    // }
-
 
 
     private void ChequearExisteCorreo(String correoNuevo)

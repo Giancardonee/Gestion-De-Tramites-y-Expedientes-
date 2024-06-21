@@ -70,3 +70,6 @@ c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Compon
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\ListaExpediente.razor.rz.scp.css
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\ListaTramites.razor.rz.scp.css
 c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Login.razor.rz.scp.css
+c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenuAdmin.razor.rz.scp.css
+c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenuUsuario.razor.rz.scp.css
+c:\Users\Usuario\Desktop\sistema prueba\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Saludo.razor.rz.scp.css

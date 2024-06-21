@@ -27,10 +27,12 @@ public class CasoDeUsoTramiteBaja(
         catch (AutorizacionException e)
         {
             Console.WriteLine(e.Message);
+            throw;
         }
         catch (RepositorioException e)
         {
             Console.WriteLine(e.Message);
+            throw;
         }
     }
 }

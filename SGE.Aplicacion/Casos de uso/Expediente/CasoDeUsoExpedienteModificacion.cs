@@ -17,10 +17,12 @@ public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServi
         catch (RepositorioException excE)
         {
             Console.WriteLine(excE.Message);
+            throw;
         }
         catch (Exception ex)
         {
           Console.WriteLine(ex.Message);
+          throw;
         }
     }
 }

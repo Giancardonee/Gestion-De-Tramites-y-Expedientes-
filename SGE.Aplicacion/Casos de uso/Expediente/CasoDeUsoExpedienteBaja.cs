@@ -22,14 +22,17 @@ public class CasoDeUsoExpedienteBaja(
         catch (AutorizacionException e)
         {
             Console.WriteLine(e.Message);
+            throw;
         }
         catch (RepositorioException e)
         {
             Console.WriteLine(e.Message);
+            throw;
         }
         catch (Exception ex)
         {
           Console.WriteLine(ex.Message);
+          throw;
         }
     }
 }
